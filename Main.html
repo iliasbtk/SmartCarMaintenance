@@ -8,6 +8,11 @@
 	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	
+	<style>
+	#title {text-align:center;}
+	.label {siz
+	</style>
 </head>
 
 <body>
@@ -32,16 +37,141 @@
         </div>
 
 		<div data-role="main" class="ui-content">
-			<div>
-				<h1>Dashboard</h1>
-				<br>
+			<div id="title">
+				<h2>Dashboard</h2> <hr>
 			</div>
+			
+			<form>
+            <div class="ui-field-contain">
+                <label for="select-native-1">Vehicles</label>
+                <select id="select-native-1"  multiple data-native-menu="false" data-mini="true">
+                    <option value="1">Car 1</option>
+                    <option value="2">Car 2</option>
+                    <option value="3">The 3rd Option</option>
+                    <option value="4">The 4th Option</option>
+					<option value="1">The 1st Option</option>
+                    <option value="2">The 2nd Option</option>
+                    <option value="3">The 3rd Option</option>
+                    <option value="4">The 4th Option</option>
+                </select>
+            </div>
+            </form>
+			<hr>
+			
+			<div data-role="collapsible">
+				<h3>Documents</h3>
+				<div style="overflow-x:auto;">
+					<table>
+					  <thead>
+						<tr>
+						  <th>Car</th>
+						  <th>Type</th>
+						  <th>Date</th>
+						  <th>Cumulated Cost</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr>
+						  <td>Car 1</td>
+						  <td>Insurance</td>
+						  <td>16.12.20</td>
+						  <td>$ 1700,00</td>
+						</tr>
+						<tr>
+						  <td>Car 2</td>
+						  <td>MOT</td>
+						  <td>16.01.21</td>
+						  <td>$ 700,00</td>
+						</tr>
+					  </tbody>
+					</table>
+				</div>
+			</div>
+			<div data-role="collapsible">
+				<h3>Maintenance</h3>
+				<div style="overflow-x:auto;">
+					<table>
+					  <thead>
+						<tr>
+						  <th>Car</th>
+						  <th>Type</th>
+						  <th>Mileage</th>
+						  <th>Cumulated Cost</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr>
+						  <td>Car 1</td>
+						  <td>Oil Filter</td>
+						  <td>22 000</td>
+						  <td>$ 700,00</td>
+						</tr>
+						<tr>
+						  <td>Car 2</td>
+						  <td>Air Filter</td>
+						  <td>30 000</td>
+						  <td>$ 100,00</td>
+						</tr>
+					  </tbody>
+					</table>
+				</div>
+			</div>
+			<div data-role="collapsible">
+				<h3>Services</h3>
+				<div style="overflow-x:auto;">
+					<table>
+					  <thead>
+						<tr>
+						  <th>Car</th>
+						  <th>Type</th>
+						  <th>Date</th>
+						  <th>Cumulated Cost</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr>
+						  <td>Car 1</td>
+						  <td>Car Wash</td>
+						  <td>10.11.2020</td>
+						  <td>$ 80,00</td>
+						</tr>
+						<tr>
+						  <td>Car 2</td>
+						  <td>Fuel</td>
+						  <td>12.12.2020</td>
+						  <td>$ 1000,00</td>
+						</tr>
+					  </tbody>
+					</table>
+				</div>
+			</div>			
+			<div class="ui-grid-b">
+			  <div class="ui-block-a">
+				<h4>Actual Mileage:</h4>
+			  </div>
+			  <div class="ui-block-b">
+				<p style="border:1px solid black; padding:5px;">25600 Miles</p>
+			  </div>
+			  <div class="ui-block-c">
+				<a href="#updateMileage" data-rel="popup" class="ui-btn ui-btn-inline">Update</a>
+			  </div>
+			</div>
+			
+			<div data-role="popup" id="updateMileage" class="ui-content">
+				<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
+				<label for="fullname">Full name:</label>
+				<input type="text" name="fullname" id="fullname">  
+				<input type="submit" data-inline="true" value="Update">
+			</div>
+			
 		</div>
 
 		<div data-role="footer" data-position="fixed">
 				
 		</div>
 	</div>
+	
+	
 </body>
 </html>
 

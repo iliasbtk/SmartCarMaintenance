@@ -3,14 +3,18 @@
 }
 
 table, th, td {
-	border: 1px solid black;
+	border-bottom: 1px solid black;
 	border-collapse: collapse;
+	
+	
 }	
-		
-th {
-	text-align: left;
+
+td, th {
+	text-align: Left;
 }
+		
+
 
 table {
-	table-layout: fixed; 
+	width: 100%;
 }

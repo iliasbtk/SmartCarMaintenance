@@ -27,15 +27,62 @@
 		</div>
 
 		<div data-role="header" data-position="fixed">
-            <h1>MySmartCarMaintenance</h1>            
+            <h1>Settings</h1>            
 			<a href="#myPanel" data-icon="bars" data-position="right" data-rel="dialog">Menu</a>
         </div>
 
 		<div data-role="main" class="ui-content">
-			<div>
-				<h1>Dashboard</h1>
-				<br>
+			<h4>Preferences</h4>
+			<div class="ui-field-contain">
+				<label for="select-choice-1" class="select">Unit for Distance:</label>
+				<select id="select-choice-1">
+			  	    <option value="standard">Miles</option>
+					<option value="rush">Kilometers</option>
+				</select>
+		    </div>
+			<div class="ui-field-contain">
+				<label for="select-choice-1" class="select">Currency:</label>
+				<select id="select-choice-1">
+			  	    <option value="standard">Euro</option>
+					<option value="rush">US Dollars</option>
+					<option value="rush">CA Dollars</option>
+					<option value="rush">GBP</option>
+				</select>
+		    </div>
+			<div class="ui-field-contain">
+				<label for="fullname">Decimal Points:</label>
+				<input type="text" id="fullname">
 			</div>
+			<div class="ui-field-contain">
+				<label for="select-choice-1" class="select">Theme:</label>
+				<select id="select-choice-1">
+			  	    <option value="standard">Theme 1</option>
+					<option value="rush">Theme 2</option>
+					<option value="rush">Theme 3</option>
+				</select>
+		    </div>
+			<br>
+			<hr>
+			<br>
+			<h4>Notifications</h4>
+			<div class="ui-field-contain">
+				<label for="select-choice-1" class="select">Sound:</label>
+				<select id="select-choice-1">
+			  	    <option value="standard">Ring 1</option>
+					<option value="rush">Ring 2</option>
+					<option value="rush">Ring 3</option>
+					<option value="rush">Silent</option>
+				</select>
+		    </div>
+			<div class="ui-field-contain">
+				<label for="fullname">Notification Time:</label>
+				<input type="text" id="fullname">
+			</div>
+			<br>
+			<hr>
+			<br>
+			<h4>Updates</h4>
+			<a href="#" class="ui-btn ui-corner-all">Check for Updates</a>
 		</div>
 
 		<div data-role="footer" data-position="fixed">

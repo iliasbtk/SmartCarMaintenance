@@ -11,7 +11,7 @@
 </head>
 
 <body>
-    <div data-role="page">
+    <div data-role="page" id="Statics">
 		<div data-role="panel" id="myPanel">
 			<a href="Main.html" target="_self" data-role="button" data-icon="home" data-iconpos="notext"></a>
 			<ul data-role="listview" data-inset="true">
@@ -27,15 +27,392 @@
 		</div>
 
 		<div data-role="header" data-position="fixed">
-            <h1>MySmartCarMaintenance</h1>            
+            <h1>Statistics / Charts</h1>            
 			<a href="#myPanel" data-icon="bars" data-position="right" data-rel="dialog">Menu</a>
         </div>
 
 		<div data-role="main" class="ui-content">
-			<div>
-				<h1>Dashboard</h1>
-				<br>
+			<div class="ui-grid-b">
+				<div class="ui-block-a" style="border:3px solid Orange">
+					<a href="#Statics" class="ui-btn ui-corner-all">Statics</a>
+				</div>
+				<div class="ui-block-b">
+					<a href="#Charts" class="ui-btn ui-corner-all">Charts</a>
+				</div>
+				<div class="ui-block-c">
+					<a href="#History" class="ui-btn ui-corner-all">History</a>
+				</div>
 			</div>
+			<div data-role="collapsible">
+				<h3>Filter</h3>
+				<div class="ui-field-contain">
+					<label for="fullname">From:</label>
+					<input type="text" id="fullname">
+				</div>
+				<div class="ui-field-contain">
+					<label for="fullname">To:</label>
+					<input type="text" id="fullname">
+				</div>
+				<div class="ui-field-contain">
+					<label for="select-choice-1" class="select">Select Maintenance:</label>
+					<select id="select-choice-1" multiple data-native-menu="false" data-mini="true">
+				  	    <option value="standard">Oil Filter</option>
+						<option value="rush">Air Filter</option>
+						<option value="express">Tyre</option>
+						<option value="overnight">Brake</option>
+					</select>
+			    </div>
+				<div class="ui-field-contain">
+					<label for="select-choice-1" class="select">Select Document:</label>
+					<select id="select-choice-1" multiple data-native-menu="false" data-mini="true">
+				  	    <option value="standard">Insurance</option>
+						<option value="rush">Tax</option>
+						<option value="express">Driver licence</option>
+						<option value="overnight">MOT</option>
+					</select>
+			    </div>
+				<div class="ui-field-contain">
+					<label for="select-choice-1" class="select">Select Service:</label>
+					<select id="select-choice-1" multiple data-native-menu="false" data-mini="true">
+				  	    <option value="standard">Fuel</option>
+						<option value="rush">Car Wash</option>
+						<option value="express">Parking</option>
+						<option value="overnight">Other</option>
+					</select>
+			    </div>
+				<div class="ui-grid-b">
+					<div class="ui-block-a"></div>
+				    <div class="ui-block-b">
+						<input type="submit" value="Apply">
+					</div>
+				    <div class="ui-block-c">
+						<input type="reset" value="reset">
+					</div>
+				</div>
+			</div>
+			<div>
+				<div class="ui-grid-b">
+					<div class="ui-block-a">
+						<h4>Total stats / mileage: </h4>
+					</div>
+				    <div class="ui-block-b"></div>
+				    <div class="ui-block-c">
+						<p style="border:1px solid black; padding:5px"> 22 000 </p>
+					</div>
+				</div>
+				<div style="overflow-x:auto;">
+					<table>
+					  <thead>
+						<tr>
+						  <th>Object</th>
+						  <th>Total Cost</th>
+						  <th>Count</th>
+						  <th>Cost/100 miles</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr>
+						  <th>Maintenance</td>
+						  <th>$ 12000,00</td>
+						  <th>20</td>
+						  <th>$ 120,00</td>
+						</tr>
+						<tr>
+						  <td>Maint 1</td>
+						  <td>$ 200,00</td>
+						  <td>02</td>
+						  <td>$ 10,00</td>
+						</tr>
+						<tr>
+						  <td>Maint 1</td>
+						  <td>$ 200,00</td>
+						  <td>02</td>
+						  <td>$ 10,00</td>
+						</tr>
+						<tr>
+						  <th>Document</td>
+						  <th>$ 12000,00</td>
+						  <th>20</td>
+						  <th>$ 120,00</td>
+						</tr>
+						<tr>
+						  <td>Maint 1</td>
+						  <td>$ 200,00</td>
+						  <td>02</td>
+						  <td>$ 10,00</td>
+						</tr>
+						<tr>
+						  <td>Maint 1</td>
+						  <td>$ 200,00</td>
+						  <td>02</td>
+						  <td>$ 10,00</td>
+						</tr>
+						<tr>
+						  <th>Service</td>
+						  <th>$ 12000,00</td>
+						  <th>20</td>
+						  <th>$ 120,00</td>
+						</tr>
+						<tr>
+						  <td>Maint 1</td>
+						  <td>$ 200,00</td>
+						  <td>02</td>
+						  <td>$ 10,00</td>
+						</tr>
+						<tr>
+						  <th>Total</td>
+						  <th>$ 12000,00</td>
+						  <th>20</td>
+						  <th>$ 120,00</td>
+						</tr>
+					  </tbody>
+					</table>
+				</div>
+				
+			</div>
+			
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+				
+		</div>
+	</div>
+	<div data-role="page" id="Charts">
+		<div data-role="panel" id="myPanel">
+			<a href="Main.html" target="_self" data-role="button" data-icon="home" data-iconpos="notext"></a>
+			<ul data-role="listview" data-inset="true">
+				<li><a href="Vehicles.html" target="_self"><img src="Pictures/Vehicle.png" class="ui-li-icon">Vehicles</a></li>
+				<li><a href="Vehicle Maintenance.html" target="_self"><img src="Pictures/Maintenance.png" class="ui-li-icon">Maintenance</a></li>
+				<li><a href="Vehicle Docs.html" target="_self"><img src="Pictures/Documents.png" class="ui-li-icon">Documents</a></li>
+				<li><a href="Vehicle Fuel & Service.html" target="_self" style="white-space: normal"><img src="Pictures/FuelService.png" class="ui-li-icon">Servies/Fuel</a></li>
+				<li><a href="Statics.html" target="_self"><img src="Pictures/Stats.png" class="ui-li-icon">Statistics/Chart</a></li>
+				<li><a href="Map.html" target="_self"><img src="Pictures/Map.png" class="ui-li-icon">Map</a></li>
+				<li><a href="Settings.html" target="_self"><img src="Pictures/Settings.png" class="ui-li-icon">Settings</a></li>
+				<li><a href="About.html" target="_self"><img src="Pictures/About.png" class="ui-li-icon">About</a></li>
+			</ul>
+		</div>
+
+		<div data-role="header" data-position="fixed">
+            <h1>Statistics / Charts</h1>            
+			<a href="#myPanel" data-icon="bars" data-position="right" data-rel="dialog">Menu</a>
+        </div>
+
+		<div data-role="main" class="ui-content">
+			<div class="ui-grid-b">
+				<div class="ui-block-a">
+					<a href="#Statics" class="ui-btn ui-corner-all">Statics</a>
+				</div>
+				<div class="ui-block-b" style="border:3px solid Orange">
+					<a href="#Charts" class="ui-btn ui-corner-all">Charts</a>
+				</div>
+				<div class="ui-block-c">
+					<a href="#History" class="ui-btn ui-corner-all">History</a>
+				</div>
+			</div>
+			<div class="ui-field-contain">
+					<label for="select-choice-1" class="select">Chart Type:</label>
+					<select id="select-choice-1">
+				  	    <option value="standard">Insurance</option>
+						<option value="rush">Tax</option>
+						<option value="express">Driver licence</option>
+						<option value="overnight">MOT</option>
+					</select>
+			    </div>
+				<div class="ui-field-contain">
+					<label for="fullname">From:</label>
+					<input type="text" id="fullname">
+				</div>
+				<div class="ui-field-contain">
+					<label for="fullname">To:</label>
+					<input type="text" id="fullname">
+				</div>
+				<h4>Bar plot</h4>
+				<div class="ui-field-contain">
+					<label for="select-choice-1" class="select">X-axis:</label>
+					<select id="select-choice-1">
+				  	    <option value="standard">Oil Filter</option>
+						<option value="rush">Air Filter</option>
+						<option value="express">Tyre</option>
+						<option value="overnight">Brake</option>
+					</select>
+				</div>
+				<div class="ui-field-contain">
+					<label for="select-choice-1" class="select">Y-axis:</label>
+					<select id="select-choice-1">
+				  	    <option value="standard">Oil Filter</option>
+						<option value="rush">Air Filter</option>
+						<option value="express">Tyre</option>
+						<option value="overnight">Brake</option>
+					</select>
+			    </div>
+				<div class="ui-grid-b">
+					<div class="ui-block-a"></div>
+				    <div class="ui-block-b"></div>
+				    <div class="ui-block-c">
+						<a href="#barPlot" class="ui-btn ui-corner-all">Create</a>
+					</div>
+				</div>
+				<h4>Line Graph</h4>
+				<div class="ui-field-contain">
+					<label for="select-choice-1" class="select">X-axis:</label>
+					<select id="select-choice-1">
+				  	    <option value="standard">Oil Filter</option>
+						<option value="rush">Air Filter</option>
+						<option value="express">Tyre</option>
+						<option value="overnight">Brake</option>
+					</select>
+				</div>
+				<div class="ui-field-contain">
+					<label for="select-choice-1" class="select">Y-axis:</label>
+					<select id="select-choice-1">
+				  	    <option value="standard">Oil Filter</option>
+						<option value="rush">Air Filter</option>
+						<option value="express">Tyre</option>
+						<option value="overnight">Brake</option>
+					</select>
+			    </div>
+				<div class="ui-grid-b">
+					<div class="ui-block-a"></div>
+				    <div class="ui-block-b"></div>
+				    <div class="ui-block-c">
+						<a href="#barPlot" class="ui-btn ui-corner-all">Create</a>
+					</div>
+				</div>
+				<h4>Pie Chart / Cost</h4>
+				<div class="ui-field-contain">
+					<label for="select-choice-1" class="select">Select Objects:</label>
+					<select id="select-choice-1" multiple data-native-menu="false" data-mini="true">
+				  	    <option value="standard">Oil Filter</option>
+						<option value="rush">Air Filter</option>
+						<option value="express">Tyre</option>
+						<option value="overnight">Brake</option>
+					</select>
+				</div>
+				<div class="ui-grid-b">
+					<div class="ui-block-a"></div>
+				    <div class="ui-block-b"></div>
+				    <div class="ui-block-c">
+						<a href="#barPlot" class="ui-btn ui-corner-all">Create</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+				
+		</div>
+	</div>
+	<div data-role="page" id="History">
+		<div data-role="panel" id="myPanel">
+			<a href="Main.html" target="_self" data-role="button" data-icon="home" data-iconpos="notext"></a>
+			<ul data-role="listview" data-inset="true">
+				<li><a href="Vehicles.html" target="_self"><img src="Pictures/Vehicle.png" class="ui-li-icon">Vehicles</a></li>
+				<li><a href="Vehicle Maintenance.html" target="_self"><img src="Pictures/Maintenance.png" class="ui-li-icon">Maintenance</a></li>
+				<li><a href="Vehicle Docs.html" target="_self"><img src="Pictures/Documents.png" class="ui-li-icon">Documents</a></li>
+				<li><a href="Vehicle Fuel & Service.html" target="_self" style="white-space: normal"><img src="Pictures/FuelService.png" class="ui-li-icon">Servies/Fuel</a></li>
+				<li><a href="Statics.html" target="_self"><img src="Pictures/Stats.png" class="ui-li-icon">Statistics/Chart</a></li>
+				<li><a href="Map.html" target="_self"><img src="Pictures/Map.png" class="ui-li-icon">Map</a></li>
+				<li><a href="Settings.html" target="_self"><img src="Pictures/Settings.png" class="ui-li-icon">Settings</a></li>
+				<li><a href="About.html" target="_self"><img src="Pictures/About.png" class="ui-li-icon">About</a></li>
+			</ul>
+		</div>
+
+		<div data-role="header" data-position="fixed">
+            <h1>Statistics / Charts</h1>            
+			<a href="#myPanel" data-icon="bars" data-position="right" data-rel="dialog">Menu</a>
+        </div>
+
+		<div data-role="main" class="ui-content">
+			<div class="ui-grid-b">
+				<div class="ui-block-a">
+					<a href="#Statics" class="ui-btn ui-corner-all">Statics</a>
+				</div>
+				<div class="ui-block-b">
+					<a href="#Charts" class="ui-btn ui-corner-all">Charts</a>
+				</div>
+				<div class="ui-block-c" style="border:3px solid Orange">
+					<a href="#History" class="ui-btn ui-corner-all">History</a>
+				</div>
+			</div>
+			<div data-role="collapsible">
+				<h3>Filter</h3>
+				<div class="ui-field-contain">
+					<label for="fullname">From:</label>
+					<input type="text" id="fullname">
+				</div>
+				<div class="ui-field-contain">
+					<label for="fullname">To:</label>
+					<input type="text" id="fullname">
+				</div>
+				<div class="ui-field-contain">
+					<label for="select-choice-1" class="select">Select Maintenance:</label>
+					<select id="select-choice-1" multiple data-native-menu="false" data-mini="true">
+				  	    <option value="standard">Oil Filter</option>
+						<option value="rush">Air Filter</option>
+						<option value="express">Tyre</option>
+						<option value="overnight">Brake</option>
+					</select>
+			    </div>
+				<div class="ui-field-contain">
+					<label for="select-choice-1" class="select">Select Document:</label>
+					<select id="select-choice-1" multiple data-native-menu="false" data-mini="true">
+				  	    <option value="standard">Insurance</option>
+						<option value="rush">Tax</option>
+						<option value="express">Driver licence</option>
+						<option value="overnight">MOT</option>
+					</select>
+			    </div>
+				<div class="ui-field-contain">
+					<label for="select-choice-1" class="select">Select Service:</label>
+					<select id="select-choice-1" multiple data-native-menu="false" data-mini="true">
+				  	    <option value="standard">Fuel</option>
+						<option value="rush">Car Wash</option>
+						<option value="express">Parking</option>
+						<option value="overnight">Other</option>
+					</select>
+			    </div>
+				<div class="ui-grid-b">
+					<div class="ui-block-a"></div>
+				    <div class="ui-block-b">
+						<input type="submit" value="Search">
+					</div>
+				    <div class="ui-block-c">
+						<input type="reset" value="reset">
+					</div>
+				</div>
+			</div>
+			<h4>History table</h4>
+				<div style="overflow-x:auto;">
+					<table>
+	      			<thead>
+						<tr>
+			     			<th>Car</th>
+							<th>Operation</th>
+							<th>Date</th>
+							<th>Mileage</th>
+							<th>Cost</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+						    <td>Car 1</td>
+							<td>Insurance</td>
+							<td>16.12.20</td>
+							<td>12000 Miles</td>
+							<td>$ 1700,00</td>
+						</tr>
+						<tr>
+							<td>Car 1</td>
+							<td>Insurance</td>
+							<td>16.12.20</td>
+							<td>12000 Miles</td>
+							<td>$ 1700,00</td>
+						</tr>
+					</tbody>
+					</table>
+				</div>
+
+				
 		</div>
 
 		<div data-role="footer" data-position="fixed">

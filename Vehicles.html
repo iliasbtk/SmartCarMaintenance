@@ -27,19 +27,187 @@
 		</div>
 
 		<div data-role="header" data-position="fixed">
-            <h1>MySmartCarMaintenance</h1>            
+            <h1>My Vehicles </h1>            
 			<a href="#myPanel" data-icon="bars" data-position="right" data-rel="dialog">Menu</a>
         </div>
 
 		<div data-role="main" class="ui-content">
-			<div>
-				<h1>Dashboard</h1>
-				<br>
+			<div data-role="collapsible">
+				<h3>Car 1</h3>
+				<div style="overflow-x:auto;">
+					<table>
+					  <thead>
+						<tr>
+						  <th>Data</th>
+						  <th>Values</th>
+						  <th>Source</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr>
+						  <td>Registration Number</td>
+						  <td>W102-234-456</td>
+						  <td>DVLA</td>
+						</tr>
+						<tr>
+						  <td>Fuel Type</td>
+						  <td>Type A</td>
+						  <td>DVLA</td>
+						</tr>
+					  </tbody>
+					</table>
+				</div>
 			</div>
+			<div data-role="collapsible">
+				<h3>Car 2</h3>
+				<div style="overflow-x:auto;">
+					<table>
+					  <thead>
+						<tr>
+						  <th>Data</th>
+						  <th>Values</th>
+						  <th>Source</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr>
+						  <td>Registration Number</td>
+						  <td>W102-234-456</td>
+						  <td>DVLA</td>
+						</tr>
+						<tr>
+						  <td>Fuel Type</td>
+						  <td>Type A</td>
+						  <td>DVLA</td>
+						</tr>
+					  </tbody>
+					</table>
+				</div>
+			</div>
+			<div data-role="collapsible">
+				<h3>Car 3</h3>
+				<div style="overflow-x:auto;">
+					<table>
+					  <thead>
+						<tr>
+						  <th>Data</th>
+						  <th>Values</th>
+						  <th>Source</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr>
+						  <td>Registration Number</td>
+						  <td>W102-234-456</td>
+						  <td>DVLA</td>
+						</tr>
+						<tr>
+						  <td>Fuel Type</td>
+						  <td>Type A</td>
+						  <td>DVLA</td>
+						</tr>
+					  </tbody>
+					</table>
+				</div>
+			</div>
+			<br>
+			<br>
+			<a href="#addCar"><img src="Pictures/icon-plus.png" style="float:right"></a>			
 		</div>
 
 		<div data-role="footer" data-position="fixed">
 				
+		</div>
+	</div>
+	<div data-role="page" id="addCar">
+		<div data-role="header" data-position="fixed">
+            <h1>Add a Vehicle </h1>
+		</div>
+		<div data-role="main" class="ui-content">
+			<form method="post" action="demoform.asp">
+				<label for="switch">Extract Data from DVLA?</label>
+				<input type="checkbox" data-role="flipswitch" name="switch" id="switch" checked data-on-text="Yes" data-off-text="No">
+			</form>
+			<hr>
+			<form method="post" action="demoform.asp">
+			    <div class="ui-field-contain">
+					<label for="fullname">Registration number: </label>			
+					<input type="text" id="fullname">
+				</div>
+				<div class="ui-field-contain">
+					<label for="fullname">Full name:</label>
+					<input type="text" id="fullname" disabled>
+				</div>
+				<div class="ui-field-contain">
+					<label for="fullname">Full name:</label>
+					<input type="text" id="fullname" disabled>
+				</div>
+				<div class="ui-field-contain">
+					<label for="fullname">Full name:</label>
+					<input type="text" id="fullname" disabled>
+				</div>
+				<div class="ui-field-contain">
+					<label for="fullname">Full name:</label>
+					<input type="text" id="fullname" disabled>
+				</div>
+				<div class="ui-field-contain">
+					<label for="fullname">Full name:</label>
+					<input type="text" id="fullname" disabled>
+				</div>
+				<div class="ui-field-contain">
+					<label for="fullname">Full name:</label>
+					<input type="text" id="fullname" disabled>
+				</div>
+				<div class="ui-field-contain">
+					<label for="fullname">Full name:</label>
+					<input type="text" id="fullname">
+				</div>
+				<div class="ui-field-contain">
+					<label for="fullname">Full name:</label>
+					<input type="text" id="fullname">
+				</div>
+				<div class="ui-field-contain">
+					<label for="fullname">Full name:</label>
+					<input type="text" id="fullname">
+			    </div>
+				<hr>
+				<div class="ui-field-contain">
+					<label for="select-choice-1" class="select">Add a Maintenance:</label>
+					<select id="select-choice-1" multiple data-native-menu="false" data-mini="true">
+				  	    <option value="standard">Oil Filter</option>
+						<option value="rush">Air Filter</option>
+						<option value="express">Tyre</option>
+						<option value="overnight">Brake</option>
+					</select>
+			    </div>
+				<hr>
+				<label for="fullname">Maintenance 1:</label>
+				<div class="ui-field-contain">
+					<label for="fullname">Par 1:</label>
+					<input type="text" id="fullname">
+			    </div>
+				<div class="ui-field-contain">
+					<label for="fullname">Par 1:</label>
+					<input type="text" id="fullname">
+			    </div>
+				<div class="ui-field-contain">
+					<label for="fullname">Par 1:</label>
+					<input type="text" id="fullname">
+			    </div>
+				
+			    <div class="ui-grid-c">
+					<div class="ui-block-a"></div>
+				    <div class="ui-block-b"></div>
+				    <div class="ui-block-c">
+						<input type="submit" value="Submit">
+					</div>
+				    <div class="ui-block-d">
+						<a href="#" data-rel="back" class="ui-btn ui-corner-all">Cancel</a>
+					</div>  
+				</div>
+				
+
+			</form>
 		</div>
 	</div>
 </body>

@@ -13,8 +13,8 @@
 <body>
     <div data-role="page">
 		<div data-role="panel" id="myPanel">
-			<a href="Main.html" target="_self" data-role="button" data-icon="home" data-iconpos="notext"></a>
 			<ul data-role="listview" data-inset="true">
+				<li><a href="Main.html" target="_self"><img src="Pictures/icon-home.png" class="ui-li-icon">Dashboard</a></li>
 				<li><a href="Vehicles.html" target="_self"><img src="Pictures/Vehicle.png" class="ui-li-icon">Vehicles</a></li>
 				<li><a href="Vehicle Maintenance.html" target="_self"><img src="Pictures/Maintenance.png" class="ui-li-icon">Maintenance</a></li>
 				<li><a href="Vehicle Docs.html" target="_self"><img src="Pictures/Documents.png" class="ui-li-icon">Documents</a></li>
@@ -27,19 +27,145 @@
 		</div>
 
 		<div data-role="header" data-position="fixed">
-            <h1>MySmartCarMaintenance</h1>            
+            <h1>Vehicle Maintenance</h1>            
 			<a href="#myPanel" data-icon="bars" data-position="right" data-rel="dialog">Menu</a>
         </div>
-
 		<div data-role="main" class="ui-content">
-			<div>
-				<h1>Dashboard</h1>
-				<br>
+			<div data-role="collapsible">
+				<h3>Maintenance 1</h3>
+				<div style="overflow-x:auto;">
+					<table>
+					  <thead>
+						<tr>
+						  <th>Car</th>
+						  <th>Date</th>
+						  <th>Cost</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr>
+						  <td>W102-234-456</td>
+						  <td>DVLA</td>
+						  <td>DVLA</td>
+						</tr>
+						<tr>
+						  <td>Type A</td>
+						  <td>DVLA</td>
+						  <td>DVLA</td>
+						</tr>
+					  </tbody>
+					</table>
+				</div>
 			</div>
+			<div data-role="collapsible">
+				<h3>Maintenance 2</h3>
+				<div style="overflow-x:auto;">
+					<table>
+					  <thead>
+						<tr>
+						  <th>Car</th>
+						  <th>Date</th>
+						  <th>Cost</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr>
+						  <td>W102-234-456</td>
+						  <td>DVLA</td>
+						  <td>DVLA</td>
+						</tr>
+						<tr>
+						  <td>Type A</td>
+						  <td>DVLA</td>
+						  <td>DVLA</td>
+						</tr>
+					  </tbody>
+					</table>
+				</div>
+			</div>
+			<div data-role="collapsible">
+				<h3>Maintenance 3</h3>
+				<div style="overflow-x:auto;">
+					<table>
+					  <thead>
+						<tr>
+						  <th>Car</th>
+						  <th>Date</th>
+						  <th>Cost</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr>
+						  <td>W102-234-456</td>
+						  <td>DVLA</td>
+						  <td>DVLA</td>
+						</tr>
+						<tr>
+						  <td>Type A</td>
+						  <td>DVLA</td>
+						  <td>DVLA</td>
+						</tr>
+					  </tbody>
+					</table>
+				</div>
+			</div>
+			<br>
+			<br>
+			<a href="#addMaintenance"><img src="Pictures/icon-plus.png" style="float:right"></a>			
 		</div>
-
+			
+		</div>
 		<div data-role="footer" data-position="fixed">
-				
+		</div>
+	</div>
+	<div data-role="page" id="addMaintenance">
+		<div data-role="header" data-position="fixed">
+            <h1>Add a Maintenance </h1>
+		</div>
+		<div data-role="main" class="ui-content">
+			<form method="post" action="demoform.asp">
+				<div class="ui-field-contain">
+					<label for="select-choice-1" class="select">Select Maintenance:</label>
+					<select id="select-choice-1">
+				  	    <option value="standard">Oil Filter</option>
+						<option value="rush">Air Filter</option>
+						<option value="express">Tyre</option>
+						<option value="overnight">Brake</option>
+					</select>
+			    </div>
+			    <div class="ui-field-contain">
+					<label for="fullname">Cost: </label>			
+					<input type="text" id="fullname">
+				</div>
+				<div class="ui-field-contain">
+					<label for="fullname">Date:</label>
+					<input type="text" id="fullname" disabled>
+				</div>
+				<div class="ui-field-contain">
+					<label for="fullname">Mileage:</label>
+					<input type="text" id="fullname" disabled>
+				</div>
+				<div class="ui-field-contain">
+					<label for="fullname">default required mileage/time for the next maintenance:</label>
+					<input type="text" id="fullname" disabled>
+					<input type="text" id="fullname" disabled>
+				</div>
+				<div class="ui-field-contain">
+					<label for="fullname">Name: </label>
+					<input type="text" id="fullname" disabled>
+				</div>
+				<hr>
+			    <div class="ui-grid-c">
+					<div class="ui-block-a"></div>
+				    <div class="ui-block-b"></div>
+				    <div class="ui-block-c">
+						<input type="submit" value="Add">
+					</div>
+				    <div class="ui-block-d">
+						<a href="#" data-rel="back" class="ui-btn ui-corner-all">Cancel</a>
+					</div>  
+				</div>
+			</form>
 		</div>
 	</div>
 </body>

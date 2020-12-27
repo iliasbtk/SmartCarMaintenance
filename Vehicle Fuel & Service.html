@@ -27,19 +27,143 @@
 		</div>
 
 		<div data-role="header" data-position="fixed">
-            <h1>MySmartCarMaintenance</h1>            
+            <h1>Vehicle Fuel/Services</h1>            
 			<a href="#myPanel" data-icon="bars" data-position="right" data-rel="dialog">Menu</a>
         </div>
 
 		<div data-role="main" class="ui-content">
-			<div>
-				<h1>Dashboard</h1>
-				<br>
+			<div data-role="collapsible">
+				<h3>Fuel</h3>
+				<div style="overflow-x:auto;">
+					<table>
+					  <thead>
+						<tr>
+						  <th>Car</th>
+						  <th>Date</th>
+						  <th>Cost</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr>
+						  <td>W102-234-456</td>
+						  <td>DVLA</td>
+						  <td>DVLA</td>
+						</tr>
+						<tr>
+						  <td>Type A</td>
+						  <td>DVLA</td>
+						  <td>DVLA</td>
+						</tr>
+					  </tbody>
+					</table>
+				</div>
 			</div>
+			<div data-role="collapsible">
+				<h3>Car Wash</h3>
+				<div style="overflow-x:auto;">
+					<table>
+					  <thead>
+						<tr>
+						  <th>Car</th>
+						  <th>Date</th>
+						  <th>Cost</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr>
+						  <td>W102-234-456</td>
+						  <td>DVLA</td>
+						  <td>DVLA</td>
+						</tr>
+						<tr>
+						  <td>Type A</td>
+						  <td>DVLA</td>
+						  <td>DVLA</td>
+						</tr>
+					  </tbody>
+					</table>
+				</div>
+			</div>
+			<div data-role="collapsible">
+				<h3>Parking</h3>
+				<div style="overflow-x:auto;">
+					<table>
+					  <thead>
+						<tr>
+						  <th>Car</th>
+						  <th>Date</th>
+						  <th>Cost</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr>
+						  <td>W102-234-456</td>
+						  <td>DVLA</td>
+						  <td>DVLA</td>
+						</tr>
+						<tr>
+						  <td>Type A</td>
+						  <td>DVLA</td>
+						  <td>DVLA</td>
+						</tr>
+					  </tbody>
+					</table>
+				</div>
+			</div>
+			<br>
+			<br>
+			<a href="#addService"><img src="Pictures/icon-plus.png" style="float:right"></a>			
 		</div>
 
 		<div data-role="footer" data-position="fixed">
 				
+		</div>
+	</div>
+	<div data-role="page" id="addService">
+		<div data-role="header" data-position="fixed">
+            <h1>Add a Service </h1>
+		</div>
+		<div data-role="main" class="ui-content">
+			<form method="post" action="demoform.asp">
+				<div class="ui-field-contain">
+					<label for="select-choice-1" class="select">Select Service:</label>
+					<select id="select-choice-1">
+				  	    <option value="standard">Fuel</option>
+						<option value="rush">Car Wash</option>
+						<option value="express">Parking</option>
+						<option value="overnight">Other</option>
+					</select>
+			    </div>
+			    <div class="ui-field-contain">
+					<label for="fullname">Cost: </label>			
+					<input type="text" id="fullname">
+				</div>
+				<div class="ui-field-contain">
+					<label for="fullname">Date:</label>
+					<input type="text" id="fullname">
+				</div>
+				<div class="ui-field-contain">
+					<label for="fullname">Current mileage:</label>
+					<input type="text" id="fullname">
+				</div>
+				<div class="ui-field-contain">
+					<label for="fullname">Name: </label>
+					<input type="text" id="fullname" disabled>
+				</div>
+				<hr>
+			    <div class="ui-grid-c">
+				    <div class="ui-block-a">
+					</div>
+				    <div class="ui-block-b">
+					</div>
+				    <div class="ui-block-c">
+						<input type="submit" value="Add">
+					</div>  
+					<div class="ui-block-d">
+						<a href="#" data-rel="back" class="ui-btn ui-corner-all">Cancel</a>
+					</div>
+				</div>
+			</form>
 		</div>
 	</div>
 </body>
