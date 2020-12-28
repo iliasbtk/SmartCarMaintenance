@@ -8,7 +8,32 @@
 	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	
+//	<script>
+	//$(document).ready(function(){
+		// Store
+		
+		// Retrieve
+	//	document.getElementById("actualMileage").innerHTML = localStorage.getItem("storeMileage");
+	//	$("#updateMileage").click(function(){
+	//		$("#actualMileage").text($("#inputMileage").val());
+	//		localStorage.setItem("mileage", $("#actualMileage").text());
+	//		$.mobile.changePage("#Main");
+	//		
+	//	});
+//  });
+//	</script>
+	<script>
+	$(document).ready(function(){
+		$('#actualMileage').text(localStorage.content);
+		$("#updateMileage").click(function(){
+			$("#actualMileage").text($("#inputMileage").val());
+			localStorage.content = $("#actualMileage").text();
+			$.mobile.changePage("#Main");
+		});
+	  
+	});
+	</script>
+
 	<style>
 	#title {text-align:center;}
 	.label {siz
@@ -16,7 +41,7 @@
 </head>
 
 <body>
-    <div data-role="page">
+    <div data-role="page" id="Main">
 		<div data-role="panel" id="myPanel">
 			<a href="Main.html" target="_self" data-role="button" data-icon="home" data-iconpos="notext"></a>
 			<ul data-role="listview" data-inset="true">
@@ -150,18 +175,18 @@
 				<h4>Actual Mileage:</h4>
 			  </div>
 			  <div class="ui-block-b">
-				<p style="border:1px solid black; padding:5px;">25600 Miles</p>
+				<p id="actualMileage" style="border: 1px solid black; padding:5px">1000</p>
 			  </div>
 			  <div class="ui-block-c">
-				<a href="#updateMileage" data-rel="popup" class="ui-btn ui-btn-inline">Update</a>
+				<a href="#updatingMileage" data-rel="popup" class="ui-btn ui-btn-inline">Update</a>
 			  </div>
 			</div>
 			
-			<div data-role="popup" id="updateMileage" class="ui-content">
+			<div data-role="popup" id="updatingMileage" class="ui-content">
 				<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right"></a>
-				<label for="fullname">Full name:</label>
-				<input type="text" name="fullname" id="fullname">  
-				<input type="submit" data-inline="true" value="Update">
+				<label for="inputMileage">Enter actual mileage:</label>
+				<input type="text" name="fullname" id="inputMileage">  
+				<input type="submit" id="updateMileage" data-inline="true" value="Update">
 			</div>
 			
 		</div>
