@@ -8,13 +8,16 @@
 	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/jquery.validation/1.16.0/jquery.validate.min.js"></script>
 </head>
 
+
+<script src="index.js"> </script>
 <body>
-    <div data-role="page">
+    <div data-role="page" id="vehicleMain">
 		<div data-role="panel" id="myPanel">
-			<a href="Main.html" target="_self" data-role="button" data-icon="home" data-iconpos="notext"></a>
 			<ul data-role="listview" data-inset="true">
+				<li><a href="Main.html" target="_self"><img src="Pictures/icon-home.png" class="ui-li-icon">Dashboard</a></li>
 				<li><a href="Vehicles.html" target="_self"><img src="Pictures/Vehicle.png" class="ui-li-icon">Vehicles</a></li>
 				<li><a href="Vehicle Maintenance.html" target="_self"><img src="Pictures/Maintenance.png" class="ui-li-icon">Maintenance</a></li>
 				<li><a href="Vehicle Docs.html" target="_self"><img src="Pictures/Documents.png" class="ui-li-icon">Documents</a></li>
@@ -25,94 +28,35 @@
 				<li><a href="About.html" target="_self"><img src="Pictures/About.png" class="ui-li-icon">About</a></li>
 			</ul>
 		</div>
-
+	
 		<div data-role="header" data-position="fixed">
             <h1>My Vehicles </h1>            
 			<a href="#myPanel" data-icon="bars" data-position="right" data-rel="dialog">Menu</a>
         </div>
 
 		<div data-role="main" class="ui-content">
-			<div data-role="collapsible">
-				<h3>Car 1</h3>
-				<div style="overflow-x:auto;">
-					<table>
-					  <thead>
-						<tr>
-						  <th>Data</th>
-						  <th>Values</th>
-						  <th>Source</th>
-						</tr>
-					  </thead>
-					  <tbody>
-						<tr>
-						  <td>Registration Number</td>
-						  <td>W102-234-456</td>
-						  <td>DVLA</td>
-						</tr>
-						<tr>
-						  <td>Fuel Type</td>
-						  <td>Type A</td>
-						  <td>DVLA</td>
-						</tr>
-					  </tbody>
-					</table>
-				</div>
+			 
+  
+     <!--       <select id="filterVehicle"  multiple data-native-menu="false">
+               <option ></option>
+				<option selected></option>
+                <option>Car 1</option>
+                <option>Car 2</option>
+                <option>The 3rd Option</option>
+                <option>The 4th Option</option>
+				<option>The 1st Option</option>
+                <option>The 2nd Option</option>
+                <option>The 3rd Option</option>
+                <option>The 4th Option</option>
+            </select> -->
+          
+			<div id="carList">
+
 			</div>
-			<div data-role="collapsible">
-				<h3>Car 2</h3>
-				<div style="overflow-x:auto;">
-					<table>
-					  <thead>
-						<tr>
-						  <th>Data</th>
-						  <th>Values</th>
-						  <th>Source</th>
-						</tr>
-					  </thead>
-					  <tbody>
-						<tr>
-						  <td>Registration Number</td>
-						  <td>W102-234-456</td>
-						  <td>DVLA</td>
-						</tr>
-						<tr>
-						  <td>Fuel Type</td>
-						  <td>Type A</td>
-						  <td>DVLA</td>
-						</tr>
-					  </tbody>
-					</table>
-				</div>
-			</div>
-			<div data-role="collapsible">
-				<h3>Car 3</h3>
-				<div style="overflow-x:auto;">
-					<table>
-					  <thead>
-						<tr>
-						  <th>Data</th>
-						  <th>Values</th>
-						  <th>Source</th>
-						</tr>
-					  </thead>
-					  <tbody>
-						<tr>
-						  <td>Registration Number</td>
-						  <td>W102-234-456</td>
-						  <td>DVLA</td>
-						</tr>
-						<tr>
-						  <td>Fuel Type</td>
-						  <td>Type A</td>
-						  <td>DVLA</td>
-						</tr>
-					  </tbody>
-					</table>
-				</div>
-			</div>
+		
 			<br>
 			<br>
-			<a href="#addCar"><img src="Pictures/icon-plus.png" style="float:right"></a>			
+			<a href="#addCar" onclick="clearFormInputs()"><img src="Pictures/icon-plus.png" style="float:right"></a>			
 		</div>
 
 		<div data-role="footer" data-position="fixed">
@@ -126,58 +70,69 @@
 		<div data-role="main" class="ui-content">
 			<form method="post" action="demoform.asp">
 				<label for="switch">Extract Data from DVLA?</label>
-				<input type="checkbox" data-role="flipswitch" name="switch" id="switch" checked data-on-text="Yes" data-off-text="No">
+				<input type="checkbox" data-role="flipswitch" name="switch" id="switchDVLA" data-on-text="Yes" data-off-text="No">
+				<button class="ui-btn ui-btn-inline" id="updateFromDVLA">Update from DVLA</button>
 			</form>
 			<hr>
-			<form method="post" action="demoform.asp">
+			<form method="post" action="demoform.asp" id="vehicleDataForm">
 			    <div class="ui-field-contain">
-					<label for="fullname">Registration number: </label>			
-					<input type="text" id="fullname">
+					<label for="fullname" >Registration number: </label>			
+					<input class="disabledForm" type="text" id="regNum" name="regNum">
 				</div>
 				<div class="ui-field-contain">
-					<label for="fullname">Full name:</label>
-					<input type="text" id="fullname" disabled>
+					<label for="fullname">Make (Brand):</label>
+					<input class="disabledForm" type="text" id="brand" name="brand">
 				</div>
 				<div class="ui-field-contain">
-					<label for="fullname">Full name:</label>
-					<input type="text" id="fullname" disabled>
+					<label for="fullname">Fuel type:</label>
+					<input class="disabledForm" type="text" id="fuelType" name"fuelType">
 				</div>
 				<div class="ui-field-contain">
-					<label for="fullname">Full name:</label>
-					<input type="text" id="fullname" disabled>
+					<label for="fullname">Model:</label>
+					<input class="enabledForm" type="text" id="model" name="model">
 				</div>
 				<div class="ui-field-contain">
-					<label for="fullname">Full name:</label>
-					<input type="text" id="fullname" disabled>
+					<label for="fullname">Date of acquisition:</label>
+					<input class="disabledForm" type="date" id="dateAquisition" name="dateAquisition">
 				</div>
 				<div class="ui-field-contain">
-					<label for="fullname">Full name:</label>
-					<input type="text" id="fullname" disabled>
+					<label for="fullname">Year of manufacture:</label>
+					<input class="disabledForm" type="number" id="manufactureYear" name="manufactureYear">
 				</div>
 				<div class="ui-field-contain">
-					<label for="fullname">Full name:</label>
-					<input type="text" id="fullname" disabled>
+					<label for="fullname">MOT expiry date:</label>
+					<input class="disabledForm" type="date" id="motExpiryDate" name="motExpiryDate">
 				</div>
 				<div class="ui-field-contain">
-					<label for="fullname">Full name:</label>
-					<input type="text" id="fullname">
+					<label for="fullname">Tax due date:</label>
+					<input class="disabledForm" type="date" id="taxDueDate" name="taxDueDate">
 				</div>
 				<div class="ui-field-contain">
-					<label for="fullname">Full name:</label>
-					<input type="text" id="fullname">
+					<label for="fullname">Insurance expiry date:</label>
+					<input class="enabledForm" type="date" id="insuranceExpiryDate" name="insuranceExpiryDate">
 				</div>
 				<div class="ui-field-contain">
-					<label for="fullname">Full name:</label>
-					<input type="text" id="fullname">
+					<label for="fullname">Current mileage:</label>
+					<input class="enabledForm" type="number" id="currentMileage" name="currentMileage">
 			    </div>
 				<hr>
 				<div class="ui-field-contain">
 					<label for="select-choice-1" class="select">Add a Maintenance:</label>
 					<select id="select-choice-1" multiple data-native-menu="false" data-mini="true">
-				  	    <option value="standard">Oil Filter</option>
-						<option value="rush">Air Filter</option>
-						<option value="express">Tyre</option>
-						<option value="overnight">Brake</option>
+				  	    <option>Oil and oil filter</option>
+						<option>Air Filter</option>
+						<option>Fuel filter</option>
+						<option>Battery</option>
+						<option>Brake fluid</option>
+						<option>Brake pads</option>
+						<option>Brake rotors</option>
+						<option>Change Tires</option>
+						<option>Coolant</option>
+						<option>Hoses</option>
+						<option>Timing Belt</option>
+						<option>Spark plugs</option>
+						<option>Wiper blades</option>
+						<option>Other</option>
 					</select>
 			    </div>
 				<hr>
@@ -199,7 +154,7 @@
 					<div class="ui-block-a"></div>
 				    <div class="ui-block-b"></div>
 				    <div class="ui-block-c">
-						<input type="submit" value="Submit">
+						<input type="submit" value="Add" onclick="saveCar()">
 					</div>
 				    <div class="ui-block-d">
 						<a href="#" data-rel="back" class="ui-btn ui-corner-all">Cancel</a>
