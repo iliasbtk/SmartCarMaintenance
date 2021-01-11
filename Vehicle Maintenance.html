@@ -8,13 +8,12 @@
 	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
-	<script src="index.js"> </script>
 </head>
 
 
 
 <body>
-    <div data-role="page" id="maintenanceMain">
+    <div data-role="page">
 		<div data-role="panel" id="myPanel">
 			<ul data-role="listview" data-inset="true">
 				<li><a href="Main.html" target="_self"><img src="Pictures/icon-home.png" class="ui-li-icon">Dashboard</a></li>
@@ -66,8 +65,8 @@
 		<div data-role="main" class="ui-content">
 			<form method="post" action="demoform.asp">
 				<div class="ui-field-contain">
-					<label for="selectMaintenance" class="select">Select Maintenance:</label>
-					<select id="selectMaintenance">
+					<label for="select-choice-1" class="select">Select Maintenance:</label>
+					<select id="select-choice-1">
 				  	    <option>Oil and oil filter</option>
 						<option>Air Filter</option>
 						<option>Fuel filter</option>
@@ -81,6 +80,7 @@
 						<option>Timing Belt</option>
 						<option>Spark plugs</option>
 						<option>Wiper blades</option>
+						
 					</select>
 			    </div>
 			    <div class="ui-field-contain">
