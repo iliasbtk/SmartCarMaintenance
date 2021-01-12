@@ -9,12 +9,10 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-	
-
 </head>
 
 <body>
-    <div data-role="page" id="main">
+    <div data-role="page">
 		<div data-role="panel" id="myPanel">
 			<ul data-role="listview" data-inset="true">
 				<li><a href="Main.php" target="_self"><img src="Pictures/icon-home.png" class="ui-li-icon">Dashboard</a></li>
@@ -30,135 +28,153 @@
 		</div>
 
 		<div data-role="header" data-position="fixed">
-            <h1>MySmartCarMaintenance</h1>            
+            <h1>Vehicle Documents</h1>            
 			<a href="#myPanel" data-icon="bars" data-position="right" data-rel="dialog">Menu</a>
         </div>
 
 		<div data-role="main" class="ui-content">
-			<div id="title">
-				<h2>Dashboard</h2> <hr>
-			</div>
-            <div class="ui-field-contain">
-                <label for="select-native-1">Vehicles</label>
-                <select id="select-native-1"  multiple data-native-menu="false" data-mini="true">
-					<option selected></option>
-                    <option>Car 1</option>
-                    <option>Car 2</option>
-                    <option>The 3rd Option</option>
-                    <option>The 4th Option</option>
-					<option>The 1st Option</option>
-                    <option>The 2nd Option</option>
-                    <option>The 3rd Option</option>
-                    <option>The 4th Option</option>
-                </select>
-            </div>
-           
-			<hr>
-			
+			<a href="#addDoc"><img src="Pictures/icon-plus.png" style="float:right"></a>	
+			<br>
+			<br>
+			<br>
+			<br>
 			<div data-role="collapsible">
-				<h3>Documents</h3>
-					<table class="table">
-					  <thead>
+				<h3>Driver License</h3>
+				<table class="table">
+					<thead>
 						<tr>
-						  <th>Car</th>
-						  <th>Type</th>
-						  <th>expiry date</th>
-						  <th>Cumulated Cost</th>
+						  <th>License Number</th>
+						  <th>Expiry Date</th>
 						</tr>
-					  </thead>
-					  <tbody>
-					  
-					  </tbody>
-					</table>
-			</div>
-			<div data-role="collapsible">
-				<h3>Maintenance</h3>
-				<div style="overflow-x:auto;">
-					<table class="table">
-					  <thead>
-						<tr>
-						  <th>Car</th>
-						  <th>Type</th>
-						  <th>next mileage/date</th>
-						  <th>Current Mileage</th>
-						  <th>Cumulated Cost</th>
-						</tr>
-					  </thead>
-					  <tbody>
-
-					  </tbody>
-					</table>
-				</div>
-			</div>
-			<div data-role="collapsible">
-				<h3>Services</h3>
-				<div style="overflow-x:auto;">
-					<table class="table">
-					  <thead>
-						<tr>
-						  <th>Car</th>
-						  <th>Type</th>
-						  <th>Date</th>
-						  <th>Cumulated Cost</th>
-						</tr>
-					  </thead>
-					  <tbody>
+					</thead>
+					<tbody>
 						
+					</tbody>
+					</table>
+			</div>
+			<div data-role="collapsible">
+				<h3>Insurance</h3>
+					<table class="table">
+					  <thead>
+						<tr>
+						  <th>Car</th>
+						  <th>Date</th>
+						  <th>Cost</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr>
+						  <td>W102-234-456</td>
+						  <td>DVLA</td>
+						  <td>DVLA</td>
+						</tr>
+						<tr>
+						  <td>Type A</td>
+						  <td>DVLA</td>
+						  <td>DVLA</td>
+						</tr>
 					  </tbody>
 					</table>
-				</div>
-			</div>			
-			<a href="#updatingMileage" class="ui-btn ui-btn-inline">Update vehicles mileage</a>
+			</div>
+			<div data-role="collapsible">
+				<h3>MOT</h3>
+					<table class="table">
+					  <thead>
+						<tr>
+						  <th>Car</th>
+						  <th>Date</th>
+						  <th>Cost</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr>
+						  <td>W102-234-456</td>
+						  <td>DVLA</td>
+						  <td>DVLA</td>
+						</tr>
+						<tr>
+						  <td>Type A</td>
+						  <td>DVLA</td>
+						  <td>DVLA</td>
+						</tr>
+					  </tbody>
+					</table>
+			</div>
+			<div data-role="collapsible">
+				<h3>Tax</h3>
+					<table class="table">
+					  <thead>
+						<tr>
+						  <th>Car</th>
+						  <th>Date</th>
+						  <th>Cost</th>
+						</tr>
+					  </thead>
+					  <tbody>
+						<tr>
+						  <td>W102-234-456</td>
+						  <td>DVLA</td>
+						  <td>DVLA</td>
+						</tr>
+						<tr>
+						  <td>Type A</td>
+						  <td>DVLA</td>
+						  <td>DVLA</td>
+						</tr>
+					  </tbody>
+					</table>
+			</div>
+			<br>
+			<br>
 		</div>
 
 		<div data-role="footer" data-position="fixed">
 				
 		</div>
 	</div>
-	<div data-role="page" id="updatingMileage">
+	<div data-role="page" id="addDoc">
 		<div data-role="header" data-position="fixed">
-            <h1>Vehicles Mileage </h1>
+            <h1>Add a Document </h1>
 		</div>
 		<div data-role="main" class="ui-content">
-			<table class="table">
-				<thead>
-					<tr>
-						<th>Vehicle</th>
-						<th>Mileage</th>
-						<th>Action</th>
-					</tr>
-				</thead>
-				<form method="post" action="./updateMileage.php">
-				<?php
-				include('connexion.php');
-				$requete="SELECT * FROM vehicle";
-				$execution = $link->query($requete) or die("Error in the consult.." . mysqli_error($link));
-				while($aff=mysqli_fetch_array($execution))
-				{
-				?>
-				<tbody>
-									
-					<tr>
-						<td>
-						<?php echo $aff['model'] . ' ' . $aff['regNum'];?>
-						<input type="hidden" name="idV" value="<?php echo $aff['idV'];?>"> </td>
-						<td><input type="number" name="updatedMileage" value="<?php echo $aff['currentMileage'];?>"> </td>
-						<td><input type="submit" value="Update" name="submit1"></td>
-					</tr>
-					
-				</tbody>
-				<?php
-				}
-				?>
-		
-				</form>
-			</table>
-	
-			
+			<form method="post" action="">
+				<div class="ui-field-contain">
+					<label for="select-choice-1" class="select">Select Document:</label>
+					<select id="select-choice-1">
+				  	    <option value="standard">Insurance</option>
+						<option value="rush">Tax</option>
+						<option value="express">Driver licence</option>
+						<option value="overnight">MOT</option>
+					</select>
+			    </div>
+			    <div class="ui-field-contain">
+					<label for="fullname">Cost: </label>			
+					<input type="text" id="fullname">
+				</div>
+				<div class="ui-field-contain">
+					<label for="fullname">Date:</label>
+					<input type="text" id="fullname">
+				</div>
+				<div class="ui-field-contain">
+					<label for="fullname">Expiry date:</label>
+					<input type="text" id="fullname">
+				</div>
+				<div class="ui-field-contain">
+					<label for="fullname">Name: </label>
+					<input type="text" id="fullname" disabled>
+				</div>
+				<hr>
+			    <div>
+					<input type="submit" value="Add Document">
+					<input type="submit" value="DVLA Update"> <!--May be removed-->
+					<input type="submit" value="Cancel">
+				</div>
+			</form>
 		</div>
 	</div>
 </body>
 </html>
+
 
 
 
