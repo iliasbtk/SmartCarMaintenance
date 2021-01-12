@@ -34,190 +34,50 @@
 			<a href="#myPanel" data-icon="bars" data-position="right" data-rel="dialog">Menu</a>
         </div>
 		<div data-role="main" class="ui-content">
-			<a href="#updateRequiredMileage" class="ui-btn ui-btn-inline">Update required mileage/time</a>
-			<a href="#addMaintenance"><img src="Pictures/icon-plus.png" style="float:right"></a>
-				<div id="maintenanceList">
-					<table class="table">
-					  <thead>
-						<tr>
-						  <th>Car</th>
-						  <th>Maintenance</th>
-						  <th>Date</th>
-						  <th>Cost</th>
-						  <th>Action</th>
-						</tr>
-					  </thead>
-					  <tbody>
-						
-					  </tbody>
-					</table>
-				</div>		
-		</div>
+			<a href="maintenanceList.php" class="ui-btn ui-btn-inline">Update required mileage/time</a>
+			<a href="addMaintenance.php"><img src="Pictures/icon-plus.png" style="float:right"></a>
+			<br>
+			<br>
+			<br>
+			<br>
+			<br>
+			<div>
+				<table class="table">
+				  <thead>
+					<tr>
+					  <th>Car</th>
+					  <th>Maintenance</th>
+					  <th>Date</th>
+					  <th>Cost</th>
+					  <th>Action</th>
+					</tr>
+				  </thead>
+				  <tbody>
+				  <?php
+					include('connexion.php');
+					$requete="SELECT * FROM maintenance";
+					$execution = $link->query($requete) or die("Error in the consult.." . mysqli_error($link));
+					while($aff=mysqli_fetch_array($execution))
+					{
+				  ?>
+				  <tr>
+					<td><?php echo $aff['vehicleName'];?><td>
+					<td><?php echo $aff['maintenanceName'];?><td>
+					<td><?php echo $aff['date'];?><td>
+					<td><?php echo $aff['cost'];?><td>
+					<td>action<td>
+				  <tr>
+				  <?php
+					}
+				  ?>	
+				  </tbody>
+				</table>
+			</div>
 			
 		</div>
+			
+	
 		<div data-role="footer" data-position="fixed">
-		</div>
-	</div>
-	<div data-role="page" id="addMaintenance">
-		<div data-role="main" class="ui-content">
-			<form method="post" action="">
-				<div class="ui-field-contain">
-					<label for="select-choice-1" class="select">Select Vehicle:</label>
-					<select id="select-choice-1" name="vehicleName">
-					<?php
-						include('connexion.php');
-						$requete="SELECT * FROM vehicle";
-						$execution = $link->query($requete) or die("Error in the consult.." . mysqli_error($link));
-						while($aff=mysqli_fetch_array($execution))
-						{
-					?>
-				  	<option><?php echo $aff['model'] . ' ' . $aff['regNum'];?></option>
-					<?php
-						}
-					?>	
-					</select>
-			    </div>
-				<div class="ui-field-contain">
-					<label for="select-choice-1" class="select">Select Maintenance:</label>
-					<select id="select-choice-1" name="maintenanceName">
-				  	    <option>Oil and oil filter</option>
-						<option>Air Filter</option>
-						<option>Fuel filter</option>
-						<option>Battery</option>
-						<option>Brake fluid</option>
-						<option>Brake pads</option>
-						<option>Brake rotors</option>
-						<option>Change Tires</option>
-						<option>Coolant</option>
-						<option>Hoses</option>
-						<option>Timing Belt</option>
-						<option>Spark plugs</option>
-						<option>Wiper blades</option>
-						
-					</select>
-			    </div>
-				<div class="ui-field-contain">
-					<label for="fullname">Cost: </label>			
-					<input type="text" id="fullname">
-				</div>
-				<div class="ui-field-contain">
-					<label for="fullname">Date:</label>
-					<input type="text" id="fullname">
-				</div>
-				<div class="ui-field-contain">
-					<label for="fullname">Current Mileage:</label>
-					<input type="text" id="fullname">
-				</div>
-				<hr>
-			    <div>
-					<input type="submit" value="Add" name="addMaintenance">
-					<input type="submit" value="Cancel">
-				</div>
-			</form>
-		</div>
-	</div>
-	<div data-role="page" id="updateRequiredMileage">
-		<div data-role="main" class="ui-content">
-			<form method="post" action="">
-				<div class="ui-field-contain">
-					<label for="select-choice-1" class="select">Select Vehicle:</label>
-					<select id="select-choice-1" name="vehicleName">
-					<?php
-						include('connexion.php');
-						$requete="SELECT * FROM vehicle";
-						$execution = $link->query($requete) or die("Error in the consult.." . mysqli_error($link));
-						while($aff=mysqli_fetch_array($execution))
-						{
-					?>
-				  	<option><?php echo $aff['model'] . ' ' . $aff['regNum'];?></option>
-					<?php
-						}
-					?>	
-					</select>
-			    </div>
-				<div class="ui-field-contain">
-					<table class="table">
-					  <thead>
-						<tr>
-						  <th>Maintenance</th>
-						  <th>Required mileage</th>
-						  <th>required Time</th>
-						</tr>
-					  </thead>
-					  <tbody>					
-						<tr>
-						  <td>Oil and oil filter</td>
-						  <td><input type="number"></td>
-						  <td><input type="number"></td>
-						</tr>
-						<tr>
-						  <td>Air Filter</td>
-						  <td><input type="number"></td>
-						  <td><input type="number"></td>
-						</tr>
-						<tr>
-						  <td>Fuel filter</td>
-						  <td><input type="number"></td>
-						  <td><input type="number"></td>
-						</tr>
-						<tr>
-						  <td>Battery</td>
-						  <td><input type="number"></td>
-						  <td><input type="number"></td>
-						</tr>
-						<tr>
-						  <td>Brake fluid</td>
-						  <td><input type="number"></td>
-						  <td><input type="number"></td>
-						</tr>
-						<tr>
-						  <td>Brake pads</td>
-						  <td><input type="number"></td>
-						  <td><input type="number"></td>
-						</tr>
-						<tr>
-						  <td>Brake rotors</td>
-						  <td><input type="number"></td>
-						  <td><input type="number"></td>
-						</tr>
-						<tr>
-						  <td>Change Tires</td>
-						  <td><input type="number"></td>
-						  <td><input type="number"></td>
-						</tr>
-						<tr>
-						  <td>Coolant</td>
-						  <td><input type="number"></td>
-						  <td><input type="number"></td>
-						</tr>
-						<tr>
-						  <td>Hoses</td>
-						  <td><input type="number"></td>
-						  <td><input type="number"></td>
-						</tr>
-						<tr>
-						  <td>Timing Belt</td>
-						  <td><input type="number"></td>
-						  <td><input type="number"></td>
-						</tr>
-						<tr>
-						  <td>Spark plugs</td>
-						  <td><input type="number"></td>
-						  <td><input type="number"></td>
-						</tr>
-						<tr>
-						  <td>Wiper blades</td>
-						  <td><input type="number"></td>
-						  <td><input type="number"></td>
-						</tr>
-					  </tbody>
-					</table>
-					
-			    <div>
-					<input type="submit" value="Update" name="updateRequiredMileageTime">
-					<input type="submit" value="Cancel">
-				</div>
-			</form>
 		</div>
 	</div>
 </body>
