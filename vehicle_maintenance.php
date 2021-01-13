@@ -61,11 +61,11 @@
 					{
 				  ?>
 				  <tr>
-					<td><?php echo $aff['vehicleName'];?><td>
-					<td><?php echo $aff['maintenanceName'];?><td>
-					<td><?php echo $aff['date'];?><td>
-					<td><?php echo $aff['cost'];?><td>
-					<td>action<td>
+					<td><?php echo $aff['vehicleName'];?></td>
+					<td><?php echo $aff['maintenanceName'];?></td>
+					<td><?php echo $aff['date'];?></td>
+					<td><?php echo $aff['cost'];?></td>
+					<td><a href="delete_Maintenance.php?idMTr=<?php echo $aff['idMTr'];?>" class="ui-btn">Delete</a></td>
 				  <tr>
 				  <?php
 					}
