@@ -51,7 +51,8 @@
 				{
 			?>
 			<div data-role="collapsible">
-				<a href="delete_vehicle.php?vehicle=<?php echo $aff['vehicleName'];?>" class="ui-btn ui-icon-delete">Delete <?php echo $aff['vehicleName'];?></a>
+				<a href="delete_vehicle.php?vehicle=<?php echo $aff['vehicleName'];?>" class="ui-btn">Delete <?php echo $aff['vehicleName'];?></a>
+				<a href="update_vehicle.php?vehicle=<?php echo $aff['vehicleName'];?>" class="ui-btn">Update <?php echo $aff['vehicleName'];?></a>
 				<h3><?php echo $aff['vehicleName'];?> </h3>
 				<table class="table">
 				<thead>

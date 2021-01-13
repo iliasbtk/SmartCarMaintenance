@@ -1,10 +1,16 @@
 <?php
 include('connexion.php');
 $vehicle=$_GET['vehicle'];
-$req="DELETE FRoM vehicle WHERE vehicleName='$vehicle'";
-$sql = $link->query($req) or die("Error in the consult.." . mysqli_error($link));
-		$url="vehicles.php";
+$deleteVehicleReq="DELETE FROM vehicle WHERE vehicleName='$vehicle';
+	";
+$sql = $link->query($deleteVehicleReq) or die("Error in the consult.." . mysqli_error($link));
 
+$deleteDocReq="DELETE FROM document WHERE vehicleName='$vehicle';
+	";
+$sql = $link->query($deleteDocReq) or die("Error in the consult.." . mysqli_error($link));
+$url="vehicles.php";
+		
+		
 		if (!headers_sent())
 		{    
 			header('Location: '.$url);
