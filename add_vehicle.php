@@ -1,3 +1,12 @@
+<?php
+	ob_start();
+	session_start();
+	if (!isset($_SESSION['scm_username'])){
+		header("Location: login.php");	
+	}
+	
+	ob_end_flush();
+?>
 <!DOCTYPE html>
 <html>
 <head> 
@@ -96,7 +105,7 @@
 	include('connexion.php');
 	if(isset($_POST['addVehicle']))
 	{
-		
+		$username=$_SESSION['scm_username'];
 		$regNum=$_POST['regNum'];
 		$model=$_POST['model'];
 		$vehicleName= $model . ' ' . $regNum;
@@ -121,8 +130,8 @@
 						('$vehicleName', 'Tax', '$taxDueDate');";
 		$sql = $link->query($addDocReq) or die("Error in the consult.." . mysqli_error($link));	
 	
-		$addVehicleReq="INSERT INTO vehicle (vehicleName, regNum, model, brand, fuelType, dateAquisition, manufactureYear, motExpiryDate, taxDueDate, insuranceExpiryDate, currentMileage) 
-			VALUES ('$vehicleName', '$regNum', '$model','$brand','$fuelType', '$dateAquisition', '$manufactureYear','$motExpiryDate','$taxDueDate','$insuranceExpiryDate','$currentMileage')";
+		$addVehicleReq="INSERT INTO vehicle (username, vehicleName, regNum, model, brand, fuelType, dateAquisition, manufactureYear, motExpiryDate, taxDueDate, insuranceExpiryDate, currentMileage) 
+			VALUES ('$username', '$vehicleName', '$regNum', '$model','$brand','$fuelType', '$dateAquisition', '$manufactureYear','$motExpiryDate','$taxDueDate','$insuranceExpiryDate','$currentMileage')";
 		$sql = $link->query($addVehicleReq) or die("Error in the consult.." . mysqli_error($link));
 		$url="vehicles.php";
 

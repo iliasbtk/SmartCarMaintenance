@@ -1,3 +1,12 @@
+<?php
+	ob_start();
+	session_start();
+	if (!isset($_SESSION['scm_username'])){
+		header("Location: login.php");	
+	}
+	
+	ob_end_flush();
+?>
 <!DOCTYPE html>
 <html>
 <head> 
@@ -13,7 +22,7 @@
 
 	</script>
 	
-</head>'
+</head>
 
 
 
@@ -30,6 +39,7 @@
 				<li><a href="map.php" target="_self"><img src="Pictures/Map.png" class="ui-li-icon">Map</a></li>
 				<li><a href="settings.php" target="_self"><img src="Pictures/Settings.png" class="ui-li-icon">Settings</a></li>
 				<li><a href="about.php" target="_self"><img src="Pictures/About.png" class="ui-li-icon">About</a></li>
+				<li><a href="logout.php" target="_self"><img src="Pictures/icon-home.png" class="ui-li-icon">Logout</a></li>
 			</ul>
 		</div>
 	
@@ -37,7 +47,9 @@
          	<h1>My Vehicles </h1>            
 			<a href="#myPanel" data-icon="bars" data-position="right" data-rel="dialog">Menu</a>
         </div>
+
 		<div data-role="main" class="ui-content">
+
 			<a href="add_vehicle.php" ><img src="Pictures/icon-plus.png" style="float:right"></a>
 			<br>
 			<br>
@@ -45,7 +57,8 @@
 			<br>
 			<?php
 				include('connexion.php');
-				$requete="SELECT * FROM vehicle";
+				$username= $_SESSION['scm_username'];
+				$requete="SELECT * FROM vehicle WHERE username='$username';";
 				$execution = $link->query($requete) or die("Error in the consult.." . mysqli_error($link));
 				while($aff=mysqli_fetch_array($execution))
 				{
