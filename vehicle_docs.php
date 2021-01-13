@@ -55,6 +55,7 @@
 				<th>Issue Date</th>
 				<th>Cost</th>
 				<th>Expiry Date</th>
+				<th>Action</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -71,6 +72,7 @@
 				<td><?php echo $aff['date'];?> </td>
 				<td><?php echo $aff['cost'];?> </td>
 				<td><?php echo $aff['expiryDate'];?> </td>
+				<td><a href="delete_doc.php?idD=<?php echo $aff['idD'];?>" class="ui-btn">Delete</a></td>
 			</tr>
 			<?php
 				}
