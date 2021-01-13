@@ -19,7 +19,7 @@
         </div>
  
 		<div id="content" data-role="content" class="ui-content">
-		<form method="post" action="">
+		<form method="post" action="" data-ajax="false">
 			<div id="loginForm">
 				<h2> Enter your credentials to login </h2>
 				<div class="ui-field-contain">
@@ -30,7 +30,10 @@
 				</div>
 				<div>
 					<input type="submit" value="Login" name="login">
-					<input type="submit" value="Forgot your password ? (NOT WORKING)" name="forgot_password">				
+					<input type="submit" value="Forgot your password ? (NOT WORKING)" name="forgot_password">	
+
+					<p> Not registered ? <p>
+					<input type="submit" value="Register" name="register">
 				</div>
 			</div>
 		</form>
@@ -66,7 +69,7 @@
 			}
 			else {
 				echo 'Invalid username and/or password';
-				echo	 '<script type="text/javascript">';
+				echo '<script type="text/javascript">';
 				echo 'window.location.href="'.$url2.'";';
 				echo '</script>';
 				echo '<noscript>';
@@ -75,6 +78,12 @@
 				exit;
 			}
 		}
+	}
+	if (isset($_POST['register'])) 
+	{
+		$url="register.php";
+		header('Location: '.$url);
+		exit;
 	}
 	?>
 			</form>
@@ -87,6 +96,5 @@
 	</div>
 </body>
 </html>
-
 
 
