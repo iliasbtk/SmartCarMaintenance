@@ -14,18 +14,18 @@
 </head>
 
 <body>
-    <div data-role="page" id="main">
+    <div data-role="page">
 		<div data-role="panel" id="myPanel">
 			<ul data-role="listview" data-inset="true">
-				<li><a href="Main.php" target="_self"><img src="Pictures/icon-home.png" class="ui-li-icon">Dashboard</a></li>
-				<li><a href="Vehicles.php" target="_self"><img src="Pictures/Vehicle.png" class="ui-li-icon">Vehicles</a></li>
-				<li><a href="Vehicle Maintenance.php" target="_self"><img src="Pictures/Maintenance.png" class="ui-li-icon">Maintenance</a></li>
-				<li><a href="Vehicle Docs.php" target="_self"><img src="Pictures/Documents.png" class="ui-li-icon">Documents</a></li>
-				<li><a href="Vehicle Fuel & Service.php" target="_self" style="white-space: normal"><img src="Pictures/FuelService.png" class="ui-li-icon">Servies/Fuel</a></li>
-				<li><a href="Statics.php" target="_self"><img src="Pictures/Stats.png" class="ui-li-icon">Statistics/Chart</a></li>
-				<li><a href="Map.php" target="_self"><img src="Pictures/Map.png" class="ui-li-icon">Map</a></li>
-				<li><a href="Settings.php" target="_self"><img src="Pictures/Settings.png" class="ui-li-icon">Settings</a></li>
-				<li><a href="About.php" target="_self"><img src="Pictures/About.png" class="ui-li-icon">About</a></li>
+				<li><a href="main.php" target="_self"><img src="Pictures/icon-home.png" class="ui-li-icon">Dashboard</a></li>
+				<li><a href="vehicles.php" target="_self"><img src="Pictures/Vehicle.png" class="ui-li-icon">Vehicles</a></li>
+				<li><a href="vehicle_maintenance.php" target="_self"><img src="Pictures/Maintenance.png" class="ui-li-icon">Maintenance</a></li>
+				<li><a href="vehicle_docs.php" target="_self"><img src="Pictures/Documents.png" class="ui-li-icon">Documents</a></li>
+				<li><a href="vehicle_fuel_and_service.php" target="_self" style="white-space: normal"><img src="Pictures/FuelService.png" class="ui-li-icon">Servies/Fuel</a></li>
+				<li><a href="statics.php" target="_self"><img src="Pictures/Stats.png" class="ui-li-icon">Statistics/Chart</a></li>
+				<li><a href="map.php" target="_self"><img src="Pictures/Map.png" class="ui-li-icon">Map</a></li>
+				<li><a href="settings.php" target="_self"><img src="Pictures/Settings.png" class="ui-li-icon">Settings</a></li>
+				<li><a href="about.php" target="_self"><img src="Pictures/About.png" class="ui-li-icon">About</a></li>
 			</ul>
 		</div>
 
@@ -38,7 +38,7 @@
 			<div id="title">
 				<h2>Dashboard</h2> <hr>
 			</div>
-            <div class="ui-field-contain">
+   <!--     <div class="ui-field-contain">
                 <label for="select-native-1">Vehicles</label>
                 <select id="select-native-1"  multiple data-native-menu="false" data-mini="true">
 					<option selected></option>
@@ -51,7 +51,7 @@
                     <option>The 3rd Option</option>
                     <option>The 4th Option</option>
                 </select>
-            </div>
+            </div>     "Filter"     -->
            
 			<hr>
 			
@@ -60,20 +60,40 @@
 					<table class="table">
 					  <thead>
 						<tr>
-						  <th>Car</th>
-						  <th>Type</th>
+						  <th>Vehicle</th>
+						  <th>Document</th>
 						  <th>expiry date</th>
 						  <th>Cumulated Cost</th>
 						</tr>
 					  </thead>
 					  <tbody>
-					  
+					  <?php
+						include('connexion.php');
+						$documentRequest="SELECT v.vehicleName, d.documentName, d.expiryDate, SUM(d.cost) cumDocCost
+									FROM vehicle v INNER JOIN document d
+									ON v.vehicleName = d.vehicleName
+									GROUP BY d.documentName";			
+						$execution = $link->query($documentRequest) or die("Error in the consult.." . mysqli_error($link));
+						while($aff=mysqli_fetch_array($execution))
+							{
+						?>
+					  <tr>
+						<td><?php echo $aff['vehicleName'];?></td>
+						<td><?php echo $aff['documentName'];?></td>
+						<td><?php echo $aff['expiryDate'];?></td>
+						<td><?php echo $aff['cumDocCost'];?></td>
+						
+					  </tr>
+					 
+					<?php
+						}
+					?>
 					  </tbody>
 					</table>
 			</div>
+			
 			<div data-role="collapsible">
 				<h3>Maintenance</h3>
-				<div style="overflow-x:auto;">
 					<table class="table">
 					  <thead>
 						<tr>
@@ -85,78 +105,71 @@
 						</tr>
 					  </thead>
 					  <tbody>
-
+					 <?php
+					$maintenanceRequest="SELECT v.vehicleName, m.maintenanceName, ml.requiredMileage, v.currentMileage, SUM(m.cost) cumMainCost
+								FROM vehicle v INNER JOIN maintenance m
+								ON v.vehicleName = m.vehicleName
+								INNER JOIN maintenancelist ml
+								ON m.maintenanceName = ml.maintenanceName
+								GROUP BY m.maintenanceName";			
+					$execution = $link->query($maintenanceRequest) or die("Error in the consult.." . mysqli_error($link));
+					while($aff=mysqli_fetch_array($execution))
+						{
+					?>
+					  <tr>
+						<td><?php echo $aff['vehicleName'];?></td>
+						<td><?php echo $aff['maintenanceName'];?></td>
+						<td><?php echo $aff['requiredMileage'] + $aff['currentMileage'];?></td>
+						<td><?php echo $aff['currentMileage'];?></td>
+						<td><?php echo $aff['cumMainCost'];?></td>
+						
+					  </tr>
+					<?php
+						}
+					?>
 					  </tbody>
 					</table>
-				</div>
 			</div>
 			<div data-role="collapsible">
 				<h3>Services</h3>
-				<div style="overflow-x:auto;">
+	
 					<table class="table">
-					  <thead>
-						<tr>
-						  <th>Car</th>
-						  <th>Type</th>
-						  <th>Date</th>
-						  <th>Cumulated Cost</th>
-						</tr>
-					  </thead>
-					  <tbody>
-						
-					  </tbody>
+					<thead>
+					<tr>
+						<th>Vehicle</th>
+						<th>Service</th>
+						<th>Cumulated Cost</th>
+					</tr>
+					</thead>
+					<tbody>
+					<?php
+					$maintenanceRequest="SELECT v.vehicleName, s.serviceName, SUM(s.cost) cumServiceCost
+								FROM vehicle v INNER JOIN service s
+								ON v.vehicleName = s.vehicleName
+								GROUP BY s.serviceName";			
+					$execution = $link->query($maintenanceRequest) or die("Error in the consult.." . mysqli_error($link));
+					while($aff=mysqli_fetch_array($execution))
+						{
+					?>
+					<tr>
+						<td><?php echo $aff['vehicleName'];?></td>
+						<td><?php echo $aff['serviceName'];?></td>
+						<td><?php echo $aff['cumServiceCost']?></td>
+					  </tr>
+					<?php
+						}
+					?>
+					</tbody>
 					</table>
-				</div>
 			</div>			
-			<a href="#updatingMileage" class="ui-btn ui-btn-inline">Update vehicles mileage</a>
+			<a href="Mileage.php" class="ui-btn ui-btn-inline">Update vehicles mileage</a>
 		</div>
 
 		<div data-role="footer" data-position="fixed">
 				
 		</div>
 	</div>
-	<div data-role="page" id="updatingMileage">
-		<div data-role="header" data-position="fixed">
-            <h1>Vehicles Mileage </h1>
-		</div>
-		<div data-role="main" class="ui-content">
-			<table class="table">
-				<thead>
-					<tr>
-						<th>Vehicle</th>
-						<th>Mileage</th>
-						<th>Action</th>
-					</tr>
-				</thead>
-				<form method="post" action="./updateMileage.php">
-				<?php
-				include('connexion.php');
-				$requete="SELECT * FROM vehicle";
-				$execution = $link->query($requete) or die("Error in the consult.." . mysqli_error($link));
-				while($aff=mysqli_fetch_array($execution))
-				{
-				?>
-				<tbody>
-									
-					<tr>
-						<td>
-						<?php echo $aff['model'] . ' ' . $aff['regNum'];?>
-						<input type="hidden" name="idV" value="<?php echo $aff['idV'];?>"> </td>
-						<td><input type="number" name="updatedMileage" value="<?php echo $aff['currentMileage'];?>"> </td>
-						<td><input type="submit" value="Update" name="submit1"></td>
-					</tr>
-					
-				</tbody>
-				<?php
-				}
-				?>
-		
-				</form>
-			</table>
 	
-			
-		</div>
-	</div>
 </body>
 </html>
 
