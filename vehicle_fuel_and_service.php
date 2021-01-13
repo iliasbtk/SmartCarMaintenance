@@ -45,6 +45,7 @@
 				<th>Service</th>
 				<th>Date</th>
 				<th>Cost</th>
+				<th>Action</th>
 			</tr>
 			</thead>
 			<tbody>
@@ -60,6 +61,7 @@
 				<td><?php echo $aff['serviceName'];?> </td>
 				<td><?php echo $aff['date'];?> </td>
 				<td><?php echo $aff['cost'];?> </td>
+				<td><a href="delete_service.php?idS=<?php echo $aff['idS'];?>" class="ui-btn">Delete</a></td>
 			</tr>
 			<?php
 				}
