@@ -162,7 +162,7 @@
 					</tbody>
 					</table>
 			</div>			
-			<a href="Mileage.php" class="ui-btn ui-btn-inline">Update vehicles mileage</a>
+			<a href="Mileage.php" class="ui-btn ui-btn-inline" >Update vehicles mileage</a>
 		</div>
 
 		<div data-role="footer" data-position="fixed">
