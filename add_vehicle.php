@@ -29,19 +29,14 @@
 
 	});
 	</script>
-	<script>	
-	function goBackToVehiclesPage()
-		{
-			$.mobile.changePage("Vehicles.php");
-		}
-	</script>
+
 </head>
 
 <body>
 <div data-role="page">
 		<div data-role="header" data-position="fixed">
             <h1>Add a Vehicle </h1>
-			<a href = "Vehicles.php" class = "ui-btn ui-corner-all" data-rel = "back">Cancel </a>
+			<a href = "vehicles.php" class = "ui-btn ui-corner-all" data-rel = "back">Cancel </a>
 		</div>
 		<div data-role="main" class="ui-content">
 			<div>
@@ -50,61 +45,61 @@
 				<button class="ui-btn ui-btn-inline" id="updateFromDVLA">Update from DVLA</button>
 	
 			</div>
-			<form method="post" action="">
+			<form method="post" action="" data-ajax="false">
 			    <div class="ui-field-contain">
-					<label for="fullname" >Registration number: </label>			
+					<label for="regNum" >Registration number: </label>			
 					<input class="disabledForm" type="text" id="regNum" name="regNum">
 				</div>
 				<div class="ui-field-contain">
-					<label for="fullname">Model:</label>
+					<label for="model">Model:</label>
 					<input class="enabledForm" type="text" id="model" name="model">
 				</div>
 				<div class="ui-field-contain">
-					<label for="fullname">Make (Brand):</label>
+					<label for="brand">Make (Brand):</label>
 					<input class="disabledForm" type="text" id="brand" name="brand">
 				</div>
 				<div class="ui-field-contain">
-					<label for="fullname">Fuel type:</label>
+					<label for="fuelType">Fuel type:</label>
 					<input class="disabledForm" type="text" id="fuelType" name="fuelType">
 				</div>
 				<div class="ui-field-contain">
-					<label for="fullname">Date of acquisition:</label>
+					<label for="dateAquisition">Date of acquisition:</label>
 					<input class="disabledForm" type="date" id="dateAquisition" name="dateAquisition">
 				</div>
 				<div class="ui-field-contain">
-					<label for="fullname">Year of manufacture:</label>
+					<label for="manufactureYear">Year of manufacture:</label>
 					<input class="disabledForm" type="number" id="manufactureYear" name="manufactureYear">
 				</div>
 				<div class="ui-field-contain">
-					<label for="fullname">MOT expiry date:</label>
+					<label for="motExpiryDate">MOT expiry date:</label>
 					<input class="disabledForm" type="date" id="motExpiryDate" name="motExpiryDate">
 				</div>
 				<div class="ui-field-contain">
-					<label for="fullname">Tax due date:</label>
+					<label for="taxDueDate">Tax due date:</label>
 					<input class="disabledForm" type="date" id="taxDueDate" name="taxDueDate">
 				</div>
 				<div class="ui-field-contain">
-					<label for="fullname">Insurance expiry date:</label>
+					<label for="insuranceExpiryDate">Insurance expiry date:</label>
 					<input class="enabledForm" type="date" id="insuranceExpiryDate" name="insuranceExpiryDate">
 				</div>
 				<div class="ui-field-contain">
-					<label for="fullname">Current mileage:</label>
+					<label for="currentMileage">Current mileage:</label>
 					<input class="enabledForm" type="number" id="currentMileage" name="currentMileage">
 			    </div>
 				<hr>
 			    <div>
-					<input type="submit" value="Add" name="add">		
+					<input type="submit" value="Add Vehicle" name="addVehicle">		
 					<input type="reset" value="Reset">
-					
-					
 				</div>
 				
 	<?php
 	include('connexion.php');
-	if(isset($_POST['add']))
+	if(isset($_POST['addVehicle']))
 	{
+		
 		$regNum=$_POST['regNum'];
 		$model=$_POST['model'];
+		$vehicleName= $model . ' ' . $regNum;
 		$brand=$_POST['brand'];
 		$fuelType=$_POST['fuelType'];
 		$dateAquisition=$_POST['dateAquisition'];
@@ -113,11 +108,15 @@
 		$taxDueDate=$_POST['taxDueDate'];
 		$insuranceExpiryDate=$_POST['insuranceExpiryDate'];
 		$currentMileage=$_POST['currentMileage'];
-		
-		$req="INSERT INTO vehicle(regNum, model, brand, fuelType, dateAquisition, manufactureYear, motExpiryDate, taxDueDate, insuranceExpiryDate, currentMileage) VALUES ('$regNum', '$model','$brand',
-			'$fuelType', '$dateAquisition', '$manufactureYear','$motExpiryDate','$taxDueDate','$insuranceExpiryDate','$currentMileage')";
-		$sql = $link->query($req) or die("Error in the consult.." . mysqli_error($link));
-		$url="Vehicles.php";
+		$req_dupli="SELECT * FROM vehicle WHERE vehicleName='$vehicleName'";
+		$exe_dupli = $link->query($req_dupli) or die("Error in the consult.." . mysqli_error($link));
+		$duplicate=mysqli_num_rows($exe_dupli);
+		if($duplicate==0)
+		{
+		$addVehicleReq="INSERT INTO vehicle (vehicleName, regNum, model, brand, fuelType, dateAquisition, manufactureYear, motExpiryDate, taxDueDate, insuranceExpiryDate, currentMileage) 
+			VALUES ('$vehicleName', '$regNum', '$model','$brand','$fuelType', '$dateAquisition', '$manufactureYear','$motExpiryDate','$taxDueDate','$insuranceExpiryDate','$currentMileage')";
+		$sql = $link->query($addVehicleReq) or die("Error in the consult.." . mysqli_error($link));
+		$url="vehicles.php";
 
 		if (!headers_sent())
 		{    
@@ -133,7 +132,15 @@
 			echo '<meta http-equiv="refresh" content="0;url='.$url.'" />';
 			echo '</noscript>'; 
 			exit;
-		}  
+		} 	
+		}
+		else{
+		?>
+		<h3 style="color:red">Erreur</h3>
+		<?php
+		}
+
+		 
 	}
 	?>
 			</form>

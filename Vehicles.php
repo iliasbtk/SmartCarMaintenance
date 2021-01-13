@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head> 
-    <title>SmartCarMaintenance Main</title>
+    <title>SmartCarMaintenance Vehicles</title>
 	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous"/>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script>
 
+	</script>
+	
 </head>'
 
 
@@ -18,15 +21,15 @@
     <div data-role="page">
 		<div data-role="panel" id="myPanel">
 			<ul data-role="listview" data-inset="true">
-				<li><a href="Main.php" target="_self"><img src="Pictures/icon-home.png" class="ui-li-icon">Dashboard</a></li>
-				<li><a href="Vehicles.php" target="_self"><img src="Pictures/Vehicle.png" class="ui-li-icon">Vehicles</a></li>
-				<li><a href="Vehicle Maintenance.php" target="_self"><img src="Pictures/Maintenance.png" class="ui-li-icon">Maintenance</a></li>
-				<li><a href="Vehicle Docs.php" target="_self"><img src="Pictures/Documents.png" class="ui-li-icon">Documents</a></li>
-				<li><a href="Vehicle Fuel & Service.php" target="_self" style="white-space: normal"><img src="Pictures/FuelService.png" class="ui-li-icon">Servies/Fuel</a></li>
-				<li><a href="Statics.php" target="_self"><img src="Pictures/Stats.png" class="ui-li-icon">Statistics/Chart</a></li>
-				<li><a href="Map.php" target="_self"><img src="Pictures/Map.png" class="ui-li-icon">Map</a></li>
-				<li><a href="Settings.php" target="_self"><img src="Pictures/Settings.png" class="ui-li-icon">Settings</a></li>
-				<li><a href="About.php" target="_self"><img src="Pictures/About.png" class="ui-li-icon">About</a></li>
+				<li><a href="main.php" target="_self"><img src="Pictures/icon-home.png" class="ui-li-icon">Dashboard</a></li>
+				<li><a href="vehicles.php" target="_self"><img src="Pictures/Vehicle.png" class="ui-li-icon">Vehicles</a></li>
+				<li><a href="vehicle_maintenance.php" target="_self"><img src="Pictures/Maintenance.png" class="ui-li-icon">Maintenance</a></li>
+				<li><a href="vehicle_docs.php" target="_self"><img src="Pictures/Documents.png" class="ui-li-icon">Documents</a></li>
+				<li><a href="vehicle_fuel_and_service.php" target="_self" style="white-space: normal"><img src="Pictures/FuelService.png" class="ui-li-icon">Servies/Fuel</a></li>
+				<li><a href="statics.php" target="_self"><img src="Pictures/Stats.png" class="ui-li-icon">Statistics/Chart</a></li>
+				<li><a href="map.php" target="_self"><img src="Pictures/Map.png" class="ui-li-icon">Map</a></li>
+				<li><a href="settings.php" target="_self"><img src="Pictures/Settings.png" class="ui-li-icon">Settings</a></li>
+				<li><a href="about.php" target="_self"><img src="Pictures/About.png" class="ui-li-icon">About</a></li>
 			</ul>
 		</div>
 	
@@ -35,7 +38,7 @@
 			<a href="#myPanel" data-icon="bars" data-position="right" data-rel="dialog">Menu</a>
         </div>
 		<div data-role="main" class="ui-content">
-			<a href="addVehicle.php"><img src="Pictures/icon-plus.png" style="float:right"></a>
+			<a href="add_vehicle.php" ><img src="Pictures/icon-plus.png" style="float:right"></a>
 			<br>
 			<br>
 			<br>
@@ -48,7 +51,8 @@
 				{
 			?>
 			<div data-role="collapsible">
-				<h3><?php echo $aff['model'] . ' ' . $aff['regNum'];?></h3>
+				
+				<h3><?php echo $aff['vehicleName'];?> </h3>
 				<table class="table">
 				<thead>
 					<tr>

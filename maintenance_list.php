@@ -15,10 +15,10 @@
 <div data-role="page">
 	<div data-role="header" data-position="fixed">
         <h1>Update Required Mileage</h1>            
-		<a href = "Vehicle Maintenance.php" class = "ui-btn ui-corner-all" data-rel = "back">Cancel </a>
+		<a href = "vehicle_maintenance.php" class = "ui-btn ui-corner-all" data-rel = "back">Cancel </a>
     </div>
 		<div data-role="main" class="ui-content">
-			<form method="post" action="">
+			<form method="post" action="" data-ajax="false">
 				<div class="ui-field-contain">
 					<label for="select-choice-1" class="select">Select Vehicle:</label>
 					<select id="select-choice-1" name="selectedVehicleName">
@@ -163,7 +163,7 @@
 									('$selectedVehicle', 'Spark plugs', '$sparkPlugsMileage', '$sparkPlugsTime'),
 									('$selectedVehicle', 'Wiper blades', '$wiperBladesMileage', '$wiperBladesTime');";
 					$sql = $link->query($updateRequiredMileageTime) or die("Error in the consult.." . mysqli_error($link));
-					$url="Vehicle Maintenance.php";
+					$url="vehicle_maintenance.php";
 					if (!headers_sent())
 					{    
 						header('Location: '.$url);

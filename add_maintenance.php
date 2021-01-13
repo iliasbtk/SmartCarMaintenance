@@ -15,10 +15,10 @@
 <div data-role="page">
 	<div data-role="header" data-position="fixed">
         <h1>Add Maintenance</h1>            
-		<a href = "Vehicle Maintenance.php" class = "ui-btn ui-corner-all" data-rel = "back">Cancel </a>
+		<a href = "vehicle_maintenance.php" class = "ui-btn ui-corner-all" data-rel = "back">Cancel </a>
     </div>
 	<div data-role="main" class="ui-content">
-		<form method="post" action="">
+		<form method="post" action="" data-ajax="false">
 			<div class="ui-field-contain">
 				<label for="select-choice-1" class="select">Select Vehicle:</label>
 				<select id="select-choice-1" name="selectedVehicleName">
@@ -64,7 +64,7 @@
 			</div>
 			<div class="ui-field-contain">
 				<label for="currentMileage">Current Mileage:</label>
-				<input type="number" id="currentMileage">
+				<input type="number" name="currentMileage">
 			</div>
 			<hr>
 		    <div>
@@ -82,14 +82,14 @@
 				$currentMileage=$_POST['currentMileage'];
 				
 				
-			//	$updateMileageReq="UPDATE Vehicle SET currentMileage = '$currentMileage' WHERE vehicleName = '$selectedVehicle';"
-			//	$sql = $link->query($updateMileageReq) or die("Error in the consult.." . mysqli_error($link));
-				
+				$updateMileageReq="UPDATE Vehicle SET currentMileage = '$currentMileage' WHERE vehicleName = '$selectedVehicle'";
+				$sql = $link->query($updateMileageReq) or die("Error in the consult.." . mysqli_error($link));
+			
 				$addMaintenanceReq="INSERT INTO maintenance(vehicleName, maintenanceName, cost, date) VALUES ('$selectedVehicle', '$selectedMaintenance','$cost','$date')";
 				$sql = $link->query($addMaintenanceReq) or die("Error in the consult.." . mysqli_error($link));
 				
 				
-				$url="Vehicle Maintenance.php";
+				$url="vehicle_maintenance.php";
 
 				if (!headers_sent())
 				{    
