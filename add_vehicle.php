@@ -108,11 +108,19 @@
 		$taxDueDate=$_POST['taxDueDate'];
 		$insuranceExpiryDate=$_POST['insuranceExpiryDate'];
 		$currentMileage=$_POST['currentMileage'];
+		
 		$req_dupli="SELECT * FROM vehicle WHERE vehicleName='$vehicleName'";
 		$exe_dupli = $link->query($req_dupli) or die("Error in the consult.." . mysqli_error($link));
 		$duplicate=mysqli_num_rows($exe_dupli);
+		
 		if($duplicate==0)
 		{
+		$addDocReq="INSERT INTO document (vehicleName, documentName, expiryDate) 
+					VALUES ('$vehicleName', 'Insurance','$insuranceExpiryDate'),
+						('$vehicleName', 'MOT', '$motExpiryDate'),
+						('$vehicleName', 'Tax', '$taxDueDate');";
+		$sql = $link->query($addDocReq) or die("Error in the consult.." . mysqli_error($link));	
+	
 		$addVehicleReq="INSERT INTO vehicle (vehicleName, regNum, model, brand, fuelType, dateAquisition, manufactureYear, motExpiryDate, taxDueDate, insuranceExpiryDate, currentMileage) 
 			VALUES ('$vehicleName', '$regNum', '$model','$brand','$fuelType', '$dateAquisition', '$manufactureYear','$motExpiryDate','$taxDueDate','$insuranceExpiryDate','$currentMileage')";
 		$sql = $link->query($addVehicleReq) or die("Error in the consult.." . mysqli_error($link));
@@ -136,7 +144,7 @@
 		}
 		else{
 		?>
-		<h3 style="color:red">Erreur</h3>
+		<script> alert("Error: This car already exist!!"); </script>
 		<?php
 		}
 
