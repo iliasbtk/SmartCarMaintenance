@@ -41,8 +41,7 @@
         </div>
 
 		<div data-role="main" class="ui-content">
-			<a href="add_doc.php"><img src="Pictures/icon-plus.png" style="float:right"></a>	
-			<input type="button" onclick="goToAddDocPage()" value="Add Doc">
+			<a href="update_doc.php"><input type="button" value="Update Document"></a>	
 			<br>
 			<br>
 			<br>
