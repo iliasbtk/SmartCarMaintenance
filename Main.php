@@ -33,6 +33,7 @@
 			<li><a href="map.php" target="_self"><img src="Pictures/Map.png" class="ui-li-icon">Map</a></li>
 			<li><a href="settings.php" target="_self"><img src="Pictures/Settings.png" class="ui-li-icon">Settings</a></li>
 			<li><a href="about.php" target="_self"><img src="Pictures/About.png" class="ui-li-icon">About</a></li>
+			<li><a href="account.php" target="_self"><img src="Pictures/icon-home.png" class="ui-li-icon">Account</a></li>
 			<li><a href="logout.php" target="_self"><img src="Pictures/icon-home.png" class="ui-li-icon">Logout</a></li>
 		</ul>
 	</div>
