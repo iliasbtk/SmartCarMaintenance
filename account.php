@@ -21,7 +21,7 @@
 </head>
 
 <body>
-<div data-role="page">
+<div data-role="page" id="account">
     <div data-role="panel" id="myPanel">
 		<ul data-role="listview" data-inset="true">
 			<li><a href="main.php" target="_self"><img src="Pictures/icon-home.png" class="ui-li-icon">Dashboard</a></li>
@@ -68,7 +68,63 @@
 			</div>
 			<h4> Manage Account:</h4>
 			<div class="ui-grid-b">
-			<div class="ui-block-a"><a href="unregister.php" class="ui-btn">Unregister</a></div>
+			<div class="ui-block-a"><a href="#unregisterPopup" data-rel="popup" class="ui-btn ui-btn-inline ui-corner-all">Unregister</a></div>
+			</div>
+		
+
+			<div data-role="popup" id="unregisterPopup" class="ui-content">
+			<a href="#" data-rel="back" class="ui-btn ui-corner-all ui-shadow ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right">Cancel</a>
+				<form method="post" action="" data-ajax="false">
+					<div>
+						<h4> Are you sure you want to delete your account ?</h4>
+						<input type="submit" value="Delete" name="delete">		
+					</div>
+					<?php
+					if(isset($_POST['delete']))
+					{
+						
+						$selectReq="SELECT * FROM vehicle WHERE username='$username';";
+						$execution = $link->query($selectReq) or die("Error in the consult.." . mysqli_error($link));
+						
+						while($vehicles=mysqli_fetch_array($execution))
+						{
+							$vehicleName=$vehicles['vehicleName'];
+							$deleteDocReq="DELETE FROM document WHERE vehicleName='$vehicleName';";
+							$sql = $link->query($deleteDocReq) or die("Error in the consult.." . mysqli_error($link));
+
+							$deletemaintenanceReq1="DELETE FROM maintenance WHERE vehicleName='$vehicleName';";
+							$sql = $link->query($deletemaintenanceReq1) or die("Error in the consult.." . mysqli_error($link));
+
+							$deletemaintenanceReq2="DELETE FROM maintenancelist WHERE vehicleName='$vehicleName';";
+							$sql = $link->query($deletemaintenanceReq2) or die("Error in the consult.." . mysqli_error($link));
+
+							$deleteServiceReq="DELETE FROM service WHERE vehicleName='$vehicleName';";
+							$sql = $link->query($deleteServiceReq) or die("Error in the consult.." . mysqli_error($link));
+						}
+						$deleteReq="DELETE FROM vehicle WHERE username='$username';";
+						$execution = $link->query($deleteReq) or die("Error in the consult.." . mysqli_error($link));
+						
+						$deleteReq="DELETE FROM users WHERE username='$username';";
+						$execution = $link->query($deleteReq) or die("Error in the consult.." . mysqli_error($link));
+						
+					
+						
+						
+						$url="login.php";
+						
+						if (!headers_sent())
+						{    
+							header('Location: login.php');
+							exit;
+						}	
+						else 
+						{
+							header('Location: account.php');
+							exit;
+						}     
+					}
+					?>
+				</form>
 			</div>
 
 		</div>		
