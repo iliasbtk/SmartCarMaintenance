@@ -34,11 +34,18 @@
 			<?php
 		}
 		?>
+		<?php
+			include('connexion.php');
+			$username= $_SESSION['scm_username'];
+			$distanceUnit="SELECT distanceUnit FROM users WHERE username='$username';";
+			$distanceExe = $link->query($distanceUnit) or die("Error in the consult.." . mysqli_error($link));
+			$dist=mysqli_fetch_array($distanceExe);
+		?>
 			<table class="table">
 				<thead>
 					<tr>
 						<th>Vehicle</th>
-						<th>Mileage</th>
+						<th>Mileage(<?php echo $dist['distanceUnit'];?>)</th>
 						<th>Action</th>
 
 					</tr>
@@ -46,8 +53,6 @@
 				
 				<tbody>
 					<?php
-						include('connexion.php');
-						$username= $_SESSION['scm_username'];
 						$requete="SELECT * FROM vehicle WHERE username='$username';";
 						$execution = $link->query($requete) or die("Error in the consult.." . mysqli_error($link));
 						while($aff=mysqli_fetch_array($execution))

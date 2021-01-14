@@ -1,3 +1,12 @@
+<?php
+	ob_start();
+	session_start();
+	if (!isset($_SESSION['scm_username'])){
+		header("Location: login.php");	
+	}
+	
+	ob_end_flush();
+?>
 <!DOCTYPE html>
 <html>
 <head> 
@@ -24,7 +33,12 @@
 					<select id="select-choice-1" name="selectedVehicleName">
 					<?php
 						include('connexion.php');
-						$requete="SELECT * FROM vehicle";
+						$username= $_SESSION['scm_username'];
+						$distanceUnit="SELECT distanceUnit FROM users WHERE username='$username';";
+						$distanceExe = $link->query($distanceUnit) or die("Error in the consult.." . mysqli_error($link));
+						$dist=mysqli_fetch_array($distanceExe);
+						
+						$requete="SELECT * FROM vehicle WHERE username='$username'";
 						$execution = $link->query($requete) or die("Error in the consult.." . mysqli_error($link));
 						while($aff=mysqli_fetch_array($execution))
 						{
@@ -40,7 +54,7 @@
 					  <thead>
 						<tr>
 						  <th>Maintenance</th>
-						  <th>Required mileage</th>
+						  <th>Required mileage(<?php echo $dist['distanceUnit'];?>)</th>
 						  <th>required Time</th>
 						</tr>
 					  </thead>

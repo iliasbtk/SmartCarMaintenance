@@ -77,6 +77,9 @@
 			<?php
 				include('connexion.php');
 				$username= $_SESSION['scm_username'];
+				$distanceUnit="SELECT distanceUnit FROM users WHERE username='$username';";
+				$distanceExe = $link->query($distanceUnit) or die("Error in the consult.." . mysqli_error($link));
+				$dist=mysqli_fetch_array($distanceExe);
 				$documentRequest="SELECT v.vehicleName, d.documentName, d.expiryDate, SUM(d.cost) cumDocCost
 									FROM vehicle v INNER JOIN document d
 									ON v.vehicleName = d.vehicleName
@@ -105,8 +108,8 @@
 			<tr>
 				<th>Car</th>
 				<th>Type</th>
-				<th>next mileage/date</th>
-				<th>Current Mileage</th>
+				<th>next mileage/date(<?php echo $dist['distanceUnit'];?>)</th>
+				<th>Current Mileage(<?php echo $dist['distanceUnit'];?>)</th>
 				<th>Cumulated Cost</th>
 			</tr>
 			</thead>
@@ -125,7 +128,7 @@
 			<tr>
 				<td><?php echo $aff['vehicleName'];?></td>
 				<td><?php echo $aff['maintenanceName'];?></td>
-				<td><?php echo $aff['requiredMileage'] + $aff['currentMileage'];?></td>
+				<td><?phpecho $aff['requiredMileage'] + $aff['currentMileage'];?></td>
 				<td><?php echo $aff['currentMileage'];?></td>
 				<td><?php echo $aff['cumMainCost'];?></td>	
 			</tr>

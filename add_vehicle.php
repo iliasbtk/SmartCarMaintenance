@@ -48,6 +48,13 @@
 			<a href = "vehicles.php" class = "ui-btn ui-corner-all" data-rel = "back">Cancel </a>
 		</div>
 		<div data-role="main" class="ui-content">
+			<?php
+			include('connexion.php');
+			$username=$_SESSION['scm_username'];
+			$distanceUnit="SELECT distanceUnit FROM users WHERE username='$username';";
+			$distanceExe = $link->query($distanceUnit) or die("Error in the consult.." . mysqli_error($link));
+			$dist=mysqli_fetch_array($distanceExe);
+			?>
 			<div>
 				<label for="switch">Extract Data from DVLA?</label>
 				<input type="checkbox" data-role="flipswitch" name="switch" id="switchDVLA" data-on-text="Yes" data-off-text="No">
@@ -92,8 +99,8 @@
 					<input class="enabledForm" type="date" id="insuranceExpiryDate" name="insuranceExpiryDate">
 				</div>
 				<div class="ui-field-contain">
-					<label for="currentMileage">Current mileage:</label>
-					<input class="enabledForm" type="number" id="currentMileage" name="currentMileage">
+					<label for="currentMileage">Current mileage(<?php echo $dist['distanceUnit'];?>):</label>
+					<input class="enabledForm" type="number" name="currentMileage">
 			    </div>
 				<hr>
 			    <div>
@@ -105,7 +112,7 @@
 	include('connexion.php');
 	if(isset($_POST['addVehicle']))
 	{
-		$username=$_SESSION['scm_username'];
+		
 		$regNum=$_POST['regNum'];
 		$model=$_POST['model'];
 		$vehicleName= $model . ' ' . $regNum;

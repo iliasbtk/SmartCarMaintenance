@@ -34,6 +34,9 @@
 				<?php
 					include('connexion.php');
 					$username= $_SESSION['scm_username'];
+					$distanceUnit="SELECT distanceUnit FROM users WHERE username='$username';";
+					$distanceExe = $link->query($distanceUnit) or die("Error in the consult.." . mysqli_error($link));
+					$dist=mysqli_fetch_array($distanceExe);
 					$requete="SELECT * FROM vehicle WHERE username='$username';";
 					$execution = $link->query($requete) or die("Error in the consult.." . mysqli_error($link));
 					while($aff=mysqli_fetch_array($execution))
@@ -73,7 +76,7 @@
 				<input type="date" name="date">
 			</div>
 			<div class="ui-field-contain">
-				<label for="currentMileage">Current Mileage:</label>
+				<label for="currentMileage">Current Mileage(<?php echo $dist['distanceUnit'];?>):</label>
 				<input type="number" name="currentMileage">
 			</div>
 			<hr>
