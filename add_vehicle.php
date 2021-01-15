@@ -19,24 +19,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<script>
-	$(document).ready(function(){
-	var switchStatus = true;
-	$("#updateFromDVLA").hide();
-	$("#switchDVLA").on('change', function() {
-		if ($(this).is(':checked')) {
-			switchStatus = $(this).is(':checked');
-			$(".disabledForm").prop("disabled", true);
-			$('.disabledForm').val('');
-			$("#updateFromDVLA").show();
-		}
-		else {
-		    switchStatus = $(this).is(":checked");
-		    $(".disabledForm").prop("disabled", false);
-		    $("#updateFromDVLA").hide();
-		}
-	});	
-
-	});
+	
 	</script>
 
 </head>
@@ -55,12 +38,7 @@
 			$distanceExe = $link->query($distanceUnit) or die("Error in the consult.." . mysqli_error($link));
 			$dist=mysqli_fetch_array($distanceExe);
 			?>
-			<div>
-				<label for="switch">Extract Data from DVLA?</label>
-				<input type="checkbox" data-role="flipswitch" name="switch" id="switchDVLA" data-on-text="Yes" data-off-text="No">
-				<button class="ui-btn ui-btn-inline" id="updateFromDVLA">Update from DVLA</button>
-	
-			</div>
+
 			<form method="post" action="" data-ajax="false">
 			    <div class="ui-field-contain">
 					<label for="regNum" >Registration number: </label>			
@@ -73,18 +51,6 @@
 				<div class="ui-field-contain">
 					<label for="brand">Make (Brand):</label>
 					<input class="disabledForm" type="text" id="brand" name="brand">
-				</div>
-				<div class="ui-field-contain">
-					<label for="fuelType">Fuel type:</label>
-					<input class="disabledForm" type="text" id="fuelType" name="fuelType">
-				</div>
-				<div class="ui-field-contain">
-					<label for="dateAquisition">Date of acquisition:</label>
-					<input class="disabledForm" type="date" id="dateAquisition" name="dateAquisition">
-				</div>
-				<div class="ui-field-contain">
-					<label for="manufactureYear">Year of manufacture:</label>
-					<input class="disabledForm" type="number" id="manufactureYear" name="manufactureYear">
 				</div>
 				<div class="ui-field-contain">
 					<label for="motExpiryDate">MOT expiry date:</label>
@@ -117,9 +83,6 @@
 		$model=$_POST['model'];
 		$vehicleName= $model . ' ' . $regNum;
 		$brand=$_POST['brand'];
-		$fuelType=$_POST['fuelType'];
-		$dateAquisition=$_POST['dateAquisition'];
-		$manufactureYear=$_POST['manufactureYear'];
 		$motExpiryDate=$_POST['motExpiryDate'];
 		$taxDueDate=$_POST['taxDueDate'];
 		$insuranceExpiryDate=$_POST['insuranceExpiryDate'];
@@ -137,8 +100,8 @@
 						('$vehicleName', 'Tax', '$taxDueDate');";
 		$sql = $link->query($addDocReq) or die("Error in the consult.." . mysqli_error($link));	
 	
-		$addVehicleReq="INSERT INTO vehicle (username, vehicleName, regNum, model, brand, fuelType, dateAquisition, manufactureYear, motExpiryDate, taxDueDate, insuranceExpiryDate, currentMileage) 
-			VALUES ('$username', '$vehicleName', '$regNum', '$model','$brand','$fuelType', '$dateAquisition', '$manufactureYear','$motExpiryDate','$taxDueDate','$insuranceExpiryDate','$currentMileage')";
+		$addVehicleReq="INSERT INTO vehicle (username, vehicleName, regNum, model, brand, motExpiryDate, taxDueDate, insuranceExpiryDate, currentMileage) 
+			VALUES ('$username', '$vehicleName', '$regNum', '$model','$brand','$motExpiryDate','$taxDueDate','$insuranceExpiryDate','$currentMileage')";
 		$sql = $link->query($addVehicleReq) or die("Error in the consult.." . mysqli_error($link));
 		$url="vehicles.php";
 

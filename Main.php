@@ -128,7 +128,7 @@
 			<tr>
 				<td><?php echo $aff['vehicleName'];?></td>
 				<td><?php echo $aff['maintenanceName'];?></td>
-				<td><?phpecho $aff['requiredMileage'] + $aff['currentMileage'];?></td>
+				<td><?php echo $aff['requiredMileage'] + $aff['currentMileage'];?></td>
 				<td><?php echo $aff['currentMileage'];?></td>
 				<td><?php echo $aff['cumMainCost'];?></td>	
 			</tr>
@@ -161,7 +161,7 @@
 			<tr>
 				<td><?php echo $aff['vehicleName'];?></td>
 				<td><?php echo $aff['serviceName'];?></td>
-				<td><?php echo $aff['cumServiceCost']?></td>
+				<td><?php echo $aff['cumServiceCost'];?></td>
 			</tr>
 			<?php
 			}

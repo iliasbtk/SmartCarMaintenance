@@ -88,18 +88,6 @@
 						<td><?php echo $aff['brand'];?></td>
 					</tr>
 					<tr>
-						<td>Fuel Type</td>
-						<td><?php echo $aff['fuelType'];?></td>
-					</tr>
-					<tr>
-						<td>Date of Aquisition</td>
-						<td><?php echo $aff['dateAquisition'];?></td>
-					</tr>
-					<tr>
-						<td>Year of Manufacture</td>
-						<td><?php echo $aff['manufactureYear'];?></td>
-					</tr>
-					<tr>
 						<td>MOT Expiry Date</td>
 						<td><?php echo $aff['motExpiryDate'];?></td>
 					</tr>
