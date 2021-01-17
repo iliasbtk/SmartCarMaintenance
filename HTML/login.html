@@ -2,7 +2,7 @@
 <html>
 <head> 
     <title>SmartCarMaintenance Main</title>
-	<meta charset="utf-8" />
+    <meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="themes/SmartTheme.min.css" />
 	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
@@ -11,16 +11,17 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
 	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
 	<script type="text/javascript" src="js/login.js"></script>
+    
 	
+	<script type="text/javascript" src="js/login.js"></script>
+    <script type="text/javascript" src="js/recover_password.js"></script>
+    
+    <script>
+      function go_to_register() {
+	  window.location = "register.html";
+      }
+    </script>
 	
-	<script>
-	  function go_to_register() {
-	      window.location = "register.html";
-	  }
-	  function go_to_forgot_password(){
-	      window.location = "forgot_password.html";
-	  }
-	</script>
 </head>
 <body>
   <div data-role="page">
@@ -32,30 +33,41 @@
 	<div id="loginForm">
 	  <h2> Enter your credentials to login </h2>
 	  <div class="ui-field-contain">
-		<label for="username">Username:</label> 
+		<label for="username" >Username: </label>
 	    <input type="text" id="username" name="username" >
 	  </div>
 	  <div class="ui-field-contain">
-		<label for="password">Password:</label> 
-	    <input type="password" id="password" name="password">
+		<label for="password" >Password: </label>
+	    <input type="password" id="password" name="password" >
 	  </div>
 	  
 	  <div>
 	    <input id="login" type="submit" value="Login" name="login" onclick="login_user();" >
-	    <input type="submit" value="Forgot your password ?" name="forgot_password" oneclick="forgot_password();">	
 		</div>
 		</div>
-	 </form>
+	</form>
+	    <!--input type="submit" value="Forgot your password ?" name="forgot_password" oneclick="forgot_password();"-->
+	    <a href="#popup_change_email" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-a" data-transition="pop"> Forgot your username or password?</a>
+	<div data-role="popup" id="popup_change_email" data-theme="a" class="ui-corner-all">
+	  <form id="change_email_form" action="" method="">
+	    <div style="padding:10px 20px;">
+	      <h3> Enter your Email to receive your login details </h3>
+	      <input type="text" name="recover_email" id="recover_email" data-theme="a">
+	      <a href='#' class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-btn-icon-left" onclick="email_password();">Email username and password</a>
+	      <a href='#' class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-btn-icon-left" data-rel="back">Cancel</a> 
+	    </div>
+	  </form>
+	</div>
 	    <p> Not registered ? <p>
 	      <input type="submit" id="register_button" value="Register" name="register" onclick="go_to_register();">
-	 
-	  
-
+	  </div>
+      
      
-    </div>
+      
     <div data-role="footer" data-position="fixed">
       <h1> Copyright &copy; MySmartCarMaintenance </h1>	
     </div>
+  </div>
   </div>
 </body>
 </html>
