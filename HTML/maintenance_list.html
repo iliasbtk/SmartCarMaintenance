@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>SmartCarMaintenance Maintenance List</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+	<script>
+	function get_vehicles(){
+		var username = sessionStorage['username'];
+		  var xmlhttp = new XMLHttpRequest();
+		  var url = "https://prodevdz.tech/SmartCarMaintenance/get_vehicles_for_maintenance.php";
+		  xmlhttp.onreadystatechange = function() {
+		  if (this.readyState == 4 && this.status == 200) {
+				
+				document.getElementById("selectedVehicleName").innerHTML = this.responseText;
+				
+		  }
+		  };
+		  xmlhttp.open("GET",url+"?username="+username,true);
+		  xmlhttp.send();
+		  
+	  }
+	  function update_required_mileage(){
+	
+			// Create our XMLHttpRequest object
+			var hr = new XMLHttpRequest();
+			// Create some variables we need to send to our PHP file
+			var url = "https://prodevdz.tech/SmartCarMaintenance/maintenance_list.php";
+
+			
+			var selectedVehicle = $("#selectedVehicleName option:selected").text();
+			var oilFilterMileage = document.getElementById("oilFilterMileage").value;
+			var oilFilterTime = document.getElementById("oilFilterTime").value;
+			var airFilterMileage = document.getElementById("airFilterMileage").value;
+			var airFilterTime = document.getElementById("airFilterTime").value;
+			var fuelFilterMileage = document.getElementById("fuelFilterMileage").value;
+			var fuelFilterTime = document.getElementById("fuelFilterTime").value;
+			var batteryMileage = document.getElementById("batteryMileage").value;
+			var batteryTime = document.getElementById("batteryTime").value;
+			var brakeFluidMileage = document.getElementById("brakeFluidMileage").value;
+			var brakeFluidTime = document.getElementById("brakeFluidTime").value;
+			var brakePadsMileage = document.getElementById("brakePadsMileage").value;
+			var brakePadsTime = document.getElementById("brakePadsTime").value;
+			var brakeRotorsMileage = document.getElementById("brakeRotorsMileage").value;
+			var brakeRotorsTime = document.getElementById("brakeRotorsTime").value;
+			var changeTiresMileage = document.getElementById("changeTiresMileage").value;
+			var changeTiresTime = document.getElementById("changeTiresTime").value;
+			var coolantMileage = document.getElementById("coolantMileage").value;
+			var coolantTime = document.getElementById("coolantTime").value;
+			var hosesMileage = document.getElementById("hosesMileage").value;
+			var hosesTime = document.getElementById("hosesTime").value;
+			var timingBeltMileage = document.getElementById("timingBeltMileage").value;
+			var timingBeltTime = document.getElementById("timingBeltTime").value;
+			var sparkPlugsMileage = document.getElementById("sparkPlugsMileage").value;
+			var sparkPlugsTime = document.getElementById("sparkPlugsTime").value;
+			var wiperBladesMileage = document.getElementById("wiperBladesMileage").value;
+			var wiperBladesTime = document.getElementById("wiperBladesTime").value;
+			
+			
+			
+			var vars = "selectedVehicle="+selectedVehicle+"&oilFilterMileage="+oilFilterMileage+"&oilFilterTime="+oilFilterTime+"&airFilterMileage="+airFilterMileage+
+			"&airFilterTime="+airFilterTime+"&fuelFilterMileage="+fuelFilterMileage+"&fuelFilterTime="+fuelFilterTime+"&batteryMileage="+batteryMileage+"&batteryTime="+batteryTime+
+			"&brakeFluidMileage="+brakeFluidMileage+"&brakeFluidTime="+brakeFluidTime+"&brakePadsMileage="+brakePadsMileage+"&brakePadsTime="+brakePadsTime+"&brakeRotorsMileage="+
+			brakeRotorsMileage+"&brakeRotorsTime="+brakeRotorsTime+"&changeTiresMileage="+changeTiresMileage+"&changeTiresTime="+changeTiresTime+"&coolantMileage="+coolantMileage+
+			"&coolantTime="+coolantTime+"&hosesMileage="+hosesMileage+"&hosesTime="+hosesTime+"&timingBeltMileage="+timingBeltMileage+"&timingBeltTime="+timingBeltTime+
+			"&sparkPlugsMileage="+sparkPlugsMileage+"&sparkPlugsTime="+sparkPlugsTime+"&wiperBladesMileage="+wiperBladesMileage+"&wiperBladesTime="+wiperBladesTime;
+			
+			
+			hr.open("POST", url, true);
+			// Set content type header information for sending url encoded variables in the request
+			hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+			// Access the onreadystatechange event for the XMLHttpRequest object
+			hr.onreadystatechange = function() {
+				if(hr.readyState == 4 && hr.status == 200) {
+					
+					window.location.href = 'vehicle_maintenance.html';
+				}
+			};
+			// Send the data to PHP now... and wait for response to update the status div
+			hr.send(vars); // Actually execute the request
+			
+		}
+	 </script> 
+
+
+</head>
+
+<body onload="get_vehicles();">
+<div data-role="page">
+	<div data-role="header" data-position="fixed">
+        <h1>Update Required Mileage and Time for Next Maintenance </h1>            
+		<a href = "vehicle_maintenance.html" target="_self" class = "ui-btn ui-corner-all">Cancel </a>
+    </div>
+		<div data-role="main" class="ui-content">
+			<form method="post" action="">
+				<div class="ui-field-contain">
+				<label for="selectVehicle" class="select">Select Vehicle:</label>
+				<select id="selectedVehicleName" name="selectedVehicleName">
+			 	
+		
+				</select>
+				</div>
+				<div class="ui-field-contain">
+					<table class="table">
+					  <thead>
+						<tr>
+						  <th>Maintenance</th>
+						  <th>Required mileage</th>
+						  <th>required Time</th>
+						</tr>
+					  </thead>
+					  <tbody>					
+						<tr>
+						  <td>Oil and oil filter</td>
+						  <td><input type="number" id="oilFilterMileage"></td>
+						  <td><input type="number" id="oilFilterTime"></td>
+						</tr>
+						<tr>
+						  <td>Air Filter</td>
+						  <td><input type="number" id="airFilterMileage"></td>
+						  <td><input type="number" id="airFilterTime"></td>
+						</tr>
+						<tr>
+						  <td>Fuel filter</td>
+						  <td><input type="number" id="fuelFilterMileage"></td>
+						  <td><input type="number" id="fuelFilterTime"></td>
+						</tr>
+						<tr>
+						  <td>Battery</td>
+						  <td><input type="number" id="batteryMileage"></td>
+						  <td><input type="number" id="batteryTime"></td>
+						</tr>
+						<tr>
+						  <td>Brake fluid</td>
+						  <td><input type="number" id="brakeFluidMileage"></td>
+						  <td><input type="number" id="brakeFluidTime"></td>
+						</tr>
+						<tr>
+						  <td>Brake pads</td>
+						  <td><input type="number" id="brakePadsMileage"></td>
+						  <td><input type="number" id="brakePadsTime"></td>
+						</tr>
+						<tr>
+						  <td>Brake rotors</td>
+						  <td><input type="number" id="brakeRotorsMileage"></td>
+						  <td><input type="number" id="brakeRotorsTime"></td>
+						</tr>
+						<tr>
+						  <td>Change Tires</td>
+						  <td><input type="number" id="changeTiresMileage"></td>
+						  <td><input type="number" id="changeTiresTime"></td>
+						</tr>
+						<tr>
+						  <td>Coolant</td>
+						  <td><input type="number" id="coolantMileage"></td>
+						  <td><input type="number" id="coolantTime"></td>
+						</tr>
+						<tr>
+						  <td>Hoses</td>
+						  <td><input type="number" id="hosesMileage"></td>
+						  <td><input type="number" id="hosesTime"></td>
+						</tr>
+						<tr>
+						  <td>Timing Belt</td>
+						  <td><input type="number" id="timingBeltMileage"></td>
+						  <td><input type="number" id="timingBeltTime"></td>
+						</tr>
+						<tr>
+						  <td>Spark plugs</td>
+						  <td><input type="number" id="sparkPlugsMileage"></td>
+						  <td><input type="number" id="sparkPlugsTime"></td>
+						</tr>
+						<tr>
+						  <td>Wiper blades</td>
+						  <td><input type="number" id="wiperBladesMileage"></td>
+						  <td><input type="number" id="wiperBladesTime"></td>
+						</tr>
+					  </tbody>
+					</table>
+					
+			    <div>
+					<input type="submit" value="Update" name="updateRequiredMileageTime" onclick="update_required_mileage();">
+					<input type="reset" value="Reset">
+				</div>
+				
+			</form>
+		</div>
+	</div>
+</div>
+</body>
+</html>
