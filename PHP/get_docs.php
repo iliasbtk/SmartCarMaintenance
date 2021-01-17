@@ -19,6 +19,12 @@ echo " <td>" . $aff['vehicleName'] . "</td>";
 echo " <td>" . $aff['documentName'] . "</td>";
 echo " <td>" . $aff['expiryDate'] . "</td>";
 echo " </tr>";
+echo " <tr>";
+echo " <td></td>";
+echo " <td></td>";
+echo " <td></td>";
+echo " </tr>";
 }
+
 ?>
 
