@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>SmartCarMaintenance Add Vehicle</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="themes/SmartTheme.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+	<script>
+	function add_vehicle(){
+		var username = sessionStorage['username'];
+		// Create our XMLHttpRequest object
+		var hr = new XMLHttpRequest();
+		// Create some variables we need to send to our PHP file
+		var url = "https://prodevdz.tech/SmartCarMaintenance/add_vehicle.php";
+		
+		var regNum = document.getElementById("regNum").value;
+		var model = document.getElementById("model").value;
+		var brand = document.getElementById("brand").value;
+		var motExpiryDate = document.getElementById("motExpiryDate").value;
+		var taxDueDate = document.getElementById("taxDueDate").value;
+		var insuranceExpiryDate = document.getElementById("insuranceExpiryDate").value;
+		var currentMileage = document.getElementById("currentMileage").value;
+		
+		if(regNum == '' || model=='' || brand =='' || motExpiryDate=='' || taxDueDate=='' || insuranceExpiryDate=='' || currentMileage ==''){
+		alert ('Input required');
+		return;
+		}
+		
+		var vars = "regNum="+regNum+"&model="+model+"&brand="+brand+"&motExpiryDate="+motExpiryDate+"&taxDueDate="+taxDueDate+"&insuranceExpiryDate="+
+		insuranceExpiryDate+"&currentMileage="+currentMileage;
+		
+		
+		
+		hr.open("POST",url+"?username="+username,true);
+		// Set content type header information for sending url encoded variables in the request
+		hr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		// Access the onreadystatechange event for the XMLHttpRequest object
+		hr.onreadystatechange = function() {
+			if(hr.readyState == 4 && hr.status == 200) {
+				if(this.responseText == ''){
+				window.location.href = 'vehicles.html';
+				}else{
+				alert(this.responseText);
+				}
+			}
+		};
+		// Send the data to PHP now... and wait for response to update the status div
+		hr.send(vars); // Actually execute the request
+		
+	}
+	</script>
+</head>
+
+<body>
+<div data-role="page">
+		<div data-role="header" data-position="fixed">
+            <h1>Add a Vehicle </h1>
+			
+		</div>
+		<div data-role="main" class="ui-content">
+			
+	
+			<div id="status"></div>
+			<form method="post" action="">
+			    <div class="ui-field-contain">
+					<label for="regNum" >Registration number: </label>			
+					<input required type="text" id="regNum" name="regNum">
+				</div>
+				<div class="ui-field-contain">
+					<label for="model">Model:</label>
+					<input required type="text" id="model" name="model">
+				</div>
+				<div class="ui-field-contain">
+					<label for="brand">Make (Brand):</label>
+					<input required type="text" id="brand" name="brand">
+				</div>
+					<div class="ui-field-contain">
+					<label for="motExpiryDate">MOT expiry date:</label>
+					<input required type="date" id="motExpiryDate" name="motExpiryDate">
+				</div>
+				<div class="ui-field-contain">
+					<label for="taxDueDate">Tax due date:</label>
+					<input required type="date" id="taxDueDate" name="taxDueDate">
+				</div>
+				<div class="ui-field-contain">
+					<label for="insuranceExpiryDate">Insurance expiry date:</label>
+					<input required type="date" id="insuranceExpiryDate" name="insuranceExpiryDate">
+				</div>
+				<div class="ui-field-contain">
+					<label for="currentMileage">Current mileage():</label>
+					<input required type="number" id="currentMileage" name="currentMileage">
+			    </div>
+				<hr>
+			    <div>
+					<input type="submit" value="Add Vehicle" name="addVehicle" onclick="add_vehicle();" class="btn btn-primary">		
+					<input type="reset" value="Reset" class="btn btn-primary">
+					<a href = "vehicles.html" target="_self" class = "ui-btn ui-corner-all ui-btn-inline btn btn-secondary" >Cancel </a>
+				</div>
+				
+	
+			</form>
+		</div>
+	</div>
+
+</body>
+</html>
