@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>SmartCarMaintenance Vehicle Docs</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+	<script>
+	function display_doc(){
+		var username = sessionStorage['username'];
+		  var xmlhttp = new XMLHttpRequest();
+		  var url = "https://prodevdz.tech/SmartCarMaintenance/get_docs.php";
+		  xmlhttp.onreadystatechange = function() {
+		  if (this.readyState == 4 && this.status == 200) {
+				
+				document.getElementById("display").innerHTML = this.responseText;
+				
+		  }
+		  };
+		  xmlhttp.open("GET",url+"?username="+username,true);
+		  xmlhttp.send();
+		  
+	  }
+	</script>
+</head>
+
+<body onload="display_doc();">
+    <div data-role="page">
+		<div data-role="panel" id="myPanel">
+			<ul data-role="listview" data-inset="true">
+				<li><a href="index.html" target="_self"><img src="Pictures/icon-home.png" class="ui-li-icon">Dashboard</a></li>
+				<li><a href="vehicles.html" target="_self"><img src="Pictures/Vehicle.png" class="ui-li-icon">Vehicles</a></li>
+				<li><a href="vehicle_maintenance.html" target="_self"><img src="Pictures/Maintenance.png" class="ui-li-icon">Maintenance</a></li>
+				<li><a href="vehicle_doc.html" target="_self"><img src="Pictures/Documents.png" class="ui-li-icon">Documents</a></li>
+				<li><a href="vehicle_fuel_and_service.html" target="_self" style="white-space: normal"><img src="Pictures/FuelService.png" class="ui-li-icon">Servies/Fuel</a></li>
+				<li><a href="statics.html" target="_self"><img src="Pictures/Stats.png" class="ui-li-icon">Statistics/Chart</a></li>
+				<li><a href="settings.html" target="_self"><img src="Pictures/Settings.png" class="ui-li-icon">Settings</a></li>
+				<li><a href="about.html" target="_self"><img src="Pictures/About.png" class="ui-li-icon">About</a></li>
+				<li><a href="logout.html" target="_self"><img src="Pictures/icon-home.png" class="ui-li-icon">Logout</a></li>
+			</ul>
+		</div>
+
+		<div data-role="header" data-position="fixed">
+            <h1>Vehicle Documents</h1>            
+			<a href="#myPanel" data-icon="bars" data-position="right" data-rel="dialog">Menu</a>
+			
+        </div>
+
+		<div data-role="main" class="ui-content">
+			<a href="update_doc.html" target="_self" class="ui-btn ui-btn-inline">Update Documents</a>
+			<br>
+			<br>
+			<br>
+			<br>
+			<table class="table">
+			<thead>
+			<tr>
+				<th>Car</th>
+				<th>Document</th>
+				<th>Expiry Date</th>
+			</tr>
+			</thead>
+			<tbody id="display">
+
+			
+			
+			</tbody>
+			</table>
+	    </div>
+
+		<div data-role="footer" data-position="fixed">
+				
+		</div>
+	</div>
+</body>
+</html>
+
+
+
