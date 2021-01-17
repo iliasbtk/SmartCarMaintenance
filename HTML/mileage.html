@@ -16,7 +16,7 @@
 	function display_vehicles(){
 		var username = sessionStorage['username'];
 		  var xmlhttp = new XMLHttpRequest();
-		  var url = "https://prodevdz.tech/SmartCarMaintenance/get_vehicle_list.php";
+		  var url = "https://prodevdz.tech/SmartCarMaintenance/php/get_vehicle_list.php";
 		  xmlhttp.onreadystatechange = function() {
 		  if (this.readyState == 4 && this.status == 200) {
 				
@@ -41,7 +41,7 @@
 		var vars= "currentMileage="+currentMileage;
 
 		
-		var url = "https://prodevdz.tech/SmartCarMaintenance/update_mileage.php";
+		var url = "https://prodevdz.tech/SmartCarMaintenance/php/update_mileage.php";
 		xmlhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
 				alert('vehicle updated');

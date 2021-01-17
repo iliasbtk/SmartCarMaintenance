@@ -20,7 +20,7 @@
 	
 		
 		  var xmlhttp = new XMLHttpRequest();
-		  var url = "https://prodevdz.tech/SmartCarMaintenance/get_vehicles.php";
+		  var url = "https://prodevdz.tech/SmartCarMaintenance/php/get_vehicles.php";
 		  xmlhttp.onreadystatechange = function() {
 		  if (this.readyState == 4 && this.status == 200) {
 				
@@ -36,7 +36,7 @@
 	  function delete_vehicle(clicked) { 
 	  
 		var xmlhttp = new XMLHttpRequest();
-		var url = "https://prodevdz.tech/SmartCarMaintenance/delete_vehicle.php";
+		var url = "https://prodevdz.tech/SmartCarMaintenance/php/delete_vehicle.php";
 		xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			alert("Vehicle with id="+clicked+" deleted");	

@@ -16,7 +16,7 @@
 	function get_vehicles(){
 		var username = sessionStorage['username'];
 		  var xmlhttp = new XMLHttpRequest();
-		  var url = "https://prodevdz.tech/SmartCarMaintenance/get_vehicles_for_maintenance.php";
+		  var url = "https://prodevdz.tech/SmartCarMaintenance/php/get_vehicles_for_maintenance.php";
 		  xmlhttp.onreadystatechange = function() {
 		  if (this.readyState == 4 && this.status == 200) {
 				
@@ -33,7 +33,7 @@
 		// Create our XMLHttpRequest object
 		var hr = new XMLHttpRequest();
 		// Create some variables we need to send to our PHP file
-		var url = "https://prodevdz.tech/SmartCarMaintenance/update_doc.php";
+		var url = "https://prodevdz.tech/SmartCarMaintenance/php/update_doc.php";
 		
 		
 		

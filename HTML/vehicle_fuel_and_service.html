@@ -18,7 +18,7 @@
 		var username = sessionStorage['username'];
 		
 		  var xmlhttp = new XMLHttpRequest();
-		  var url = "https://prodevdz.tech/SmartCarMaintenance/get_services.php";
+		  var url = "https://prodevdz.tech/SmartCarMaintenance/php/get_services.php";
 		  xmlhttp.onreadystatechange = function() {
 		  if (this.readyState == 4 && this.status == 200) {
 				
@@ -34,7 +34,7 @@
 	  
 	  function delete_service(clicked) { 
         var xmlhttp = new XMLHttpRequest();
-		var url = "https://prodevdz.tech/SmartCarMaintenance/delete_service.php";
+		var url = "https://prodevdz.tech/SmartCarMaintenance/php/delete_service.php";
 		xmlhttp.onreadystatechange = function() {
 		if (this.readyState == 4 && this.status == 200) {
 			alert("Service with id="+clicked+" deleted");	

@@ -20,7 +20,7 @@
 		  
 		  var username = sessionStorage['username'];
 		  var xmlhttp2 = new XMLHttpRequest();
-		  var url2 = "https://prodevdz.tech/SmartCarMaintenance/get_maintenance_cost.php"; 
+		  var url2 = "https://prodevdz.tech/SmartCarMaintenance/php/get_maintenance_cost.php"; 
 		  xmlhttp2.onreadystatechange = function() {
 		  if (xmlhttp2.readyState == 4 && xmlhttp2.status == 200) {
 			
@@ -33,7 +33,7 @@
 		  xmlhttp2.send();
 		  
 		  var xmlhttp3 = new XMLHttpRequest();
-		  var url3 = "https://prodevdz.tech/SmartCarMaintenance/get_services_for_dashboard.php";
+		  var url3 = "https://prodevdz.tech/SmartCarMaintenance/php/get_services_for_dashboard.php";
 		  xmlhttp3.onreadystatechange = function() {
 		  if (xmlhttp3.readyState == 4 && xmlhttp3.status == 200) {
 				
@@ -46,7 +46,7 @@
 		  xmlhttp3.send();
 		  
 		  var xmlhttp4 = new XMLHttpRequest();
-		  var url4 = "https://prodevdz.tech/SmartCarMaintenance/get_vehicle_cost.php";
+		  var url4 = "https://prodevdz.tech/SmartCarMaintenance/php/get_vehicle_cost.php";
 		  xmlhttp4.onreadystatechange = function() {
 		  if (xmlhttp4.readyState == 4 && xmlhttp4.status == 200) {
 				
