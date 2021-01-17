@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <title>SmartCarMaintenance Vehicles</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="themes/SmartTheme.min.css" />
+	<link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+	<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+	<script>
+	function showUser(){
+	
+	
+		var username = sessionStorage['username'];
+	
+		
+		  var xmlhttp = new XMLHttpRequest();
+		  var url = "https://prodevdz.tech/SmartCarMaintenance/get_vehicles.php";
+		  xmlhttp.onreadystatechange = function() {
+		  if (this.readyState == 4 && this.status == 200) {
+				
+				document.getElementById("display_vehicles").innerHTML = this.responseText;
+				document.getElementById("MyElement").classList.add('MyClass');
+				
+		  }
+		  };
+		  xmlhttp.open("GET",url+"?username="+username,true);
+		  xmlhttp.send();
+		  
+	  }
+	  function delete_vehicle(clicked) { 
+	  
+		var xmlhttp = new XMLHttpRequest();
+		var url = "https://prodevdz.tech/SmartCarMaintenance/delete_vehicle.php";
+		xmlhttp.onreadystatechange = function() {
+		if (this.readyState == 4 && this.status == 200) {
+			alert("Vehicle with id="+clicked+" deleted");	
+			window.location.href = 'vehicles.html';
+			
+		}
+		};
+		xmlhttp.open("GET",url+"?idV="+clicked,true);
+		xmlhttp.send();
+				
+				
+      }
+		function edit_vehicle(clicked){
+			sessionStorage.setItem('idV', clicked);
+			window.location.href = 'edit_vehicle.html';		
+		}
+		
+	</script>
+	
+</head>
+
+
+
+<body onload="showUser();">
+    <div data-role="page">
+		<div data-role="panel" id="myPanel">
+			<ul data-role="listview" data-inset="true">
+				<li><a href="index.html" target="_self"><img src="Pictures/icon-home.png" class="ui-li-icon">Dashboard</a></li>
+				<li><a href="vehicles.html" target="_self"><img src="Pictures/Vehicle.png" class="ui-li-icon">Vehicles</a></li>
+				<li><a href="vehicle_maintenance.html" target="_self"><img src="Pictures/Maintenance.png" class="ui-li-icon">Maintenance</a></li>
+				<li><a href="vehicle_doc.html" target="_self"><img src="Pictures/Documents.png" class="ui-li-icon">Documents</a></li>
+				<li><a href="vehicle_fuel_and_service.html" target="_self" style="white-space: normal"><img src="Pictures/FuelService.png" class="ui-li-icon">Servies/Fuel</a></li>
+				<li><a href="statics.html" target="_self"><img src="Pictures/Stats.png" class="ui-li-icon">Statistics/Chart</a></li>
+				<li><a href="settings.html" target="_self"><img src="Pictures/Settings.png" class="ui-li-icon">Settings</a></li>
+				<li><a href="about.html" target="_self"><img src="Pictures/About.png" class="ui-li-icon">About</a></li>
+				<li><a href="logout.html" target="_self"><img src="Pictures/icon-home.png" class="ui-li-icon">Logout</a></li>
+			</ul>
+		</div>
+	
+		<div data-role="header" data-position="fixed">
+         	<h1> My Vehicles </h1>            
+			<a href="#myPanel" data-icon="bars" data-position="right" data-rel="dialog">Menu</a>
+        </div>
+
+		<div data-role="main" class="ui-content">
+			<br>
+			<a href="add_vehicle.html" target="_self"><img src="Pictures/icon-plus.png" style="float:right"></a>
+			<br>
+			<br>
+			<br>
+			<br>
+		<div id="display_vehicles" > </div>
+	
+		
+		
+			
+				
+		</div>
+		<div data-role="footer" data-position="fixed">
+      <h1> Copyright &copy; MySmartCarMaintenance </h1>	
+    </div>
+
+</body>
+</html>
+
+
+
