@@ -2,7 +2,7 @@
 header("Access-Control-Allow-Origin: *");
 include('connexion.php');
 $username= $_POST['username'];
-$newPassword= md5($_POST['password']);
+$newPassword= $_POST['password'];
 
 $req1 = "UPDATE users SET password='$newPassword' WHERE username='$username';";
 $sql = $link->query($req1) or die("Error in the consult.." . mysqli_error($link));
