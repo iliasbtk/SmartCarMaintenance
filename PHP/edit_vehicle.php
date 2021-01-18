@@ -14,13 +14,13 @@ $sql2 = $link->query($oldVehicleNameReq) or die("Error in the consult.." . mysql
 $aff=mysqli_fetch_array($sql2);
 $oldVehicleName=$aff['vehicleName'];
 
-$req_dupli="SELECT * FROM vehicle WHERE vehicleName='$vehicleName'";
+$req_dupli="SELECT * FROM vehicle WHERE regNum='$regNum'";
 $sql1 = $link->query($req_dupli) or die("Error in the consult.." . mysqli_error($link));
 $duplicate=mysqli_num_rows($sql1);
 
 
 				
-if($duplicate==0)
+if($duplicate<=1)
 {
 $updVehicleReq= "UPDATE vehicle SET vehicleName='$vehicleName', regNum='$regNum', model='$model', brand='$brand'
 				WHERE idV='$idV';";	
