@@ -26,50 +26,48 @@
 	
 </head>
 <body>
-  <div data-role="page">
-    <div data-role="header" data-position="fixed">
-      <h1>MySmartCarMaintenance - Login Page </h1>            
+<div data-role="page">
+
+	<div data-role="popup" id="popup_change_email" data-theme="a" class="ui-corner-all">
+		<form id="change_email_form" action="" method="">
+		<div>
+			<h3> Enter your Email to receive your login details </h3>
+			<input type="text" name="recover_email" id="recover_email" data-theme="a">
+			<a href='#' class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-btn-icon-left" onclick="email_password();">Email username and password</a>
+			<a href='#' class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-btn-icon-left" data-rel="back">Cancel</a> 
+		</div>
+		</form>
+	</div>
+
+	<div data-role="header" data-position="fixed">
+		<h1>MySmartCarMaintenance - Login Page </h1>            
     </div>
     <div id="content" data-role="content" class="ui-content">
-      <form method="post" action="" data-ajax="true">
-	<div id="loginForm">
-	  <h2> Enter your credentials to login </h2>
-	  <div class="ui-field-contain">
-		<label for="username" >Username: </label>
-	    <input type="text" id="username" name="username" >
-	  </div>
-	  <div class="ui-field-contain">
-		<label for="password" >Password: </label>
-	    <input type="password" id="password" name="password" >
-	  </div>
-	  
-	  <div>
-	    <input id="login" type="submit" value="Login" name="login" onclick="login_user();" >
+		<form method="post" action="" data-ajax="true">
+			<div id="loginForm">
+			<h2> Enter your credentials to login </h2>
+			<div class="ui-field-contain">
+				<label for="username" >Username: </label>
+				<input type="text" id="username" name="username" >
+			</div>
+			<div class="ui-field-contain">
+				<label for="password" >Password: </label>
+				<input type="password" id="password" name="password" >
+			</div>
+			<div>
+				<input id="login" type="submit" value="Login" name="login" onclick="login_user();" >
+			</div>
+			</div>
+		</form>
+		<a href="#popup_change_email" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-a" data-transition="pop"> Forgot your username or password?</a>
+		<div>
+			<p> Not registered ? <p>
+			<input type="submit" id="register_button" value="Register" name="register" onclick="go_to_register();">
 		</div>
-		</div>
-	</form>
-	    <!--input type="submit" value="Forgot your password ?" name="forgot_password" oneclick="forgot_password();"-->
-	    <a href="#popup_change_email" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-a" data-transition="pop"> Forgot your username or password?</a>
-	<div data-role="popup" id="popup_change_email" data-theme="a" class="ui-corner-all">
-	  <form id="change_email_form" action="" method="">
-	    <div style="padding:10px 20px;">
-	      <h3> Enter your Email to receive your login details </h3>
-	      <input type="text" name="recover_email" id="recover_email" data-theme="a">
-	      <a href='#' class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-btn-icon-left" onclick="email_password();">Email username and password</a>
-	      <a href='#' class="ui-btn ui-corner-all ui-shadow ui-btn-a ui-btn-icon-left" data-rel="back">Cancel</a> 
-	    </div>
-	  </form>
+    </div> 
+	<div data-role="footer" data-position="fixed">
+		<h1> Copyright &copy; MySmartCarMaintenance </h1>	
 	</div>
-	    <p> Not registered ? <p>
-	      <input type="submit" id="register_button" value="Register" name="register" onclick="go_to_register();">
-	  </div>
-      
-     
-      
-    <div data-role="footer" data-position="fixed">
-      <h1> Copyright &copy; MySmartCarMaintenance </h1>	
-    </div>
-  </div>
-  </div>
+</div>
 </body>
 </html>
