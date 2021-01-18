@@ -19,12 +19,21 @@
     
 	<script>
 	
+	$(document).on("pagecreate","#index_page", function(){ 
+		$( ".msg_head" ).on( "collapsibleexpand",  function( event, ui ) {
+			screen.orientation.lock('landscape');
+		} );
+		$( ".msg_head" ).on( "collapsiblecollapse",  function( event, ui ) {
+			screen.orientation.unlock();
+		} );
+	});  
+	
 	function onDeviceReady(){
 	  screen.orientation.lock('landscape');
       }
 
       document.addEventListener('deviceready', function(){
-	  onDeviceReady()
+	  // onDeviceReady()
       })
 		
 
@@ -142,7 +151,7 @@
 			</table>
 			</font>
 		</div>
-		<div data-role="collapsible">
+		<div data-role="collapsible" class="msg_head">
 			<h3>Maintenance</h3>
 			<font size="1" face="Courier New" >
 			<table class="table table-dark table-striped">
