@@ -12,7 +12,7 @@ $taxDueDate=$_POST['taxDueDate'];
 $insuranceExpiryDate=$_POST['insuranceExpiryDate'];
 $currentMileage=$_POST['currentMileage'];
 
-$req_dupli="SELECT * FROM vehicle WHERE vehicleName='$vehicleName'";
+$req_dupli="SELECT * FROM vehicle WHERE regNum='$regNum'";
 $exe_dupli = $link->query($req_dupli) or die("Error in the consult.." . mysqli_error($link));
 $duplicate=mysqli_num_rows($exe_dupli);
 				
