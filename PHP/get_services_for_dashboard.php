@@ -8,7 +8,7 @@ $req="SELECT v.vehicleName, s.serviceName, SUM(s.cost) cumServiceCost
 			FROM vehicle v INNER JOIN service s
 			ON v.vehicleName = s.vehicleName
 			WHERE v.username = '$username'
-			GROUP BY s.serviceName";
+			GROUP BY s.vehicleName, s.serviceName";
 $sql = $link->query($req) or die("Error in the consult.." . mysqli_error($link));
 
 while($aff=mysqli_fetch_array($sql))
