@@ -28,13 +28,7 @@
 		} );
 	});  
 	
-	function onDeviceReady(){
-	  screen.orientation.lock('landscape');
-      }
 
-      document.addEventListener('deviceready', function(){
-	  // onDeviceReady()
-      })
 		
 
 	function check_user_is_logged_in() {
@@ -93,8 +87,8 @@
 
 </head>
 
-<body onload="check_user_is_logged_in(); display_data();" onunload="screen.orientation.unlock();">
-<div data-role="page">
+<body onload="check_user_is_logged_in(); display_data();">
+<div data-role="page" id="index_page">
 	<div data-role="panel" id="myPanel">
 		<ul data-role="listview" data-inset="true">
 			<li><a href="index.html" target="_self"><img src="Pictures/icon-home.png" class="ui-li-icon">Dashboard</a></li>
@@ -136,7 +130,7 @@
 			
 		<div data-role="collapsible">
 			<h3>Documents</h3>
-			<font size="1" face="Courier New" >
+			<font size="2" face="Arial" >
 			<table class="table table-dark table-striped align-middle ">
 			<thead>
 			<tr>
@@ -153,7 +147,7 @@
 		</div>
 		<div data-role="collapsible" class="msg_head">
 			<h3>Maintenance</h3>
-			<font size="1" face="Courier New" >
+			<font size="2.5" face="Arial" >
 			<table class="table table-dark table-striped">
 			<thead class="table align-middle table-dark table-striped">
 			<tr>
@@ -173,6 +167,8 @@
 	
 		</div>
 		<div data-role="collapsible">
+		<font size="2" face="Arial" >
+
 			<h3>Services</h3>
 			<table class="table table-dark table-striped">
 			<thead>
@@ -187,6 +183,8 @@
 		
 			</tbody>
 			</table>
+		</font >
+
 		</div>			
 		<a href="mileage.html" target="_self" class="ui-btn ui-btn-inline" >Update vehicles mileage</a>
 	</div>
