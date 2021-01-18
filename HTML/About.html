@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<title>SmartCarMaintenance About</title>
+	<meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <link rel="stylesheet" href="themes/SmartTheme.min.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+    
+	<script type="text/javascript" src="js/logout.js"></script>
+	<script src="cordova.js"></script>
+
+</head>
+
+<body>
+    <div data-role="page">
+		<div data-role="panel" id="myPanel">
+			<ul data-role="listview" data-inset="true">
+				<li><a href="Main.html" target="_self"><img src="Pictures/icon-home.png" class="ui-li-icon">Dashboard</a></li>
+				<li><a href="Vehicles.html" target="_self"><img src="Pictures/Vehicle.png" class="ui-li-icon">Vehicles</a></li>
+				<li><a href="Vehicle Maintenance.html" target="_self"><img src="Pictures/Maintenance.png" class="ui-li-icon">Maintenance</a></li>
+				<li><a href="Vehicle Docs.html" target="_self"><img src="Pictures/Documents.png" class="ui-li-icon">Documents</a></li>
+				<li><a href="Vehicle Fuel & Service.html" target="_self" style="white-space: normal"><img src="Pictures/FuelService.png" class="ui-li-icon">Servies/Fuel</a></li>
+				<li><a href="Statics.html" target="_self"><img src="Pictures/Stats.png" class="ui-li-icon">Statistics/Chart</a></li>
+				<li><a href="Map.html" target="_self"><img src="Pictures/Map.png" class="ui-li-icon">Map</a></li>
+				<li><a href="Settings.html" target="_self"><img src="Pictures/Settings.png" class="ui-li-icon">Settings</a></li>
+				<li><a href="About.html" target="_self"><img src="Pictures/About.png" class="ui-li-icon">About</a></li>
+			</ul>
+		</div>
+
+		<div data-role="header" data-position="fixed">
+            <h1>About</h1>            
+			<a href="#myPanel" data-icon="bars" data-position="right" data-rel="dialog">Menu</a>
+        </div>
+
+		<div data-role="main" class="ui-content">
+			<div>
+				<p>
+				This app helps you manage your car’s maintenance and track the costs. You are able to track your car maintenance schedules such as oil and filter 
+				changes, tire rotations, brake checks and brake fluid changes, interim and full services. In addition, the App notifies you about important expiring
+				insurance, MOT, and road tax documents.
+				</p>
+			</div>
+			<div>
+				<p>
+				First you enter your vehicle registration number, vehicle model, make and current mileage in addition to the expiry date of the car’s insurance,
+				MOT, and road tax.
+				</p>
+			</div>
+			<div>
+				<p>
+				After that you can update the required mileage or days for the next maintenance schedule for predefined maintenance such as oil and filter changes,
+				tire rotations, brake checks and brake fluid changes. Then each time you do maintenance you will have to enter it alongside with the updated mileage.
+				</p>
+			</div>
+			<div>
+				<p>
+				Based on the information above, the app creates a maintenance schedule and sets up email reminders for upcoming services and expiring documents,
+				the user needs to manually input each task performed such as services, document renewals or any other expenses. Mileage needs to be updated regularly.
+				</p>
+			</div>
+			<div>
+				<p>
+				Vehicle services such as fuel cost, parking, car wash and fines can be entered manually to be tracked with the vehicle cost which are summarised by 
+				vehicle, by service type or by maintenance type.
+				</p>
+			</div>
+			<div>
+				<p>
+				This app can also be used by professionals such as taxi drivers or a tradesperson who uses a vehicle in their job (e.g. van) as the app allows them 
+				to track the cost and maintenance.
+				</p>
+			</div>
+			<div>
+				<p>
+				Finally, the management of multiple vehicles by a single user of the app is also supported.
+				</p>
+			</div>
+			
+		</div>
+
+		<div data-role="footer" data-position="fixed">
+				
+		</div>
+	</div>
+</body>
+</html>
+
+
+
