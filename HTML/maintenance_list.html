@@ -31,7 +31,7 @@
 		  xmlhttp.open("GET",url+"?username="+username,true);
 		  xmlhttp.send();
 		  
-	  }
+	  }	
 	  function update_required_mileage(){
 	
 			// Create our XMLHttpRequest object
@@ -68,7 +68,11 @@
 			var wiperBladesMileage = document.getElementById("wiperBladesMileage").value;
 			var wiperBladesTime = document.getElementById("wiperBladesTime").value;
 			
-			
+			if(selectedVehicle == ''){
+				alert ('Input required');
+				window.location.href = 'maintenance_list.html';
+				return;
+			}
 			
 			var vars = "selectedVehicle="+selectedVehicle+"&oilFilterMileage="+oilFilterMileage+"&oilFilterTime="+oilFilterTime+"&airFilterMileage="+airFilterMileage+
 			"&airFilterTime="+airFilterTime+"&fuelFilterMileage="+fuelFilterMileage+"&fuelFilterTime="+fuelFilterTime+"&batteryMileage="+batteryMileage+"&batteryTime="+batteryTime+
