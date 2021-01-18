@@ -15,7 +15,7 @@ function email_password(){
 		var return_data = hr.responseText;
 		if (return_data == 'success') {
 		    alert("Your password has been emailed to " + email);
-		    window.location.href = 'login.html.html';
+		    window.location.href = 'login.html';
 		    return true;
 		}
 		else if (return_data == 'email_not_found'){
