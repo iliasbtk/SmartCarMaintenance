@@ -47,8 +47,9 @@
 		var date = document.getElementById("date").value;
 		var expiryDate = document.getElementById("expiryDate").value;
 	
-		if(expiryDate == '' || cost == '' || date == ''){
+		if(expiryDate == '' || cost == '' || date == '' || selectVehicle == ''){
 		alert ('Input required');
+		window.location.href = 'update_doc.html';
 		return;
 		}
 		
