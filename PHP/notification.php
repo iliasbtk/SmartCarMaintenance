@@ -35,9 +35,11 @@ while($aff1=mysqli_fetch_array($sql1))
 	if($aff2['requiredTime'] != 0  &&  date("Y-m-d") == $oneWeekBeforeReminder){
 		$to = $aff3['email']; 
 		$email_subject = "SmartCarMaintenance Notification";
-		$email_body = "Dear " . $aff['username'] . "You have received a new message from SmartCarMaintenance Mobile App
-		Maintenance: ". $maintenanceName . " to be done in one week ". date("Y-m-d") . " !!
-		Thank";
+		$email_body = "Dear " . $aff['username'] . ",\n
+		You have received a new message from SmartCarMaintenance Mobile App.\n
+		Maintenance: ". $maintenanceName . " for the vehicle " . $vehicleName . " needs to be done in one week !!\n
+		Regards\n
+		SmartCarMaintenance";
 		$headers = "From: noreply@SmartCarMaintenance.com"; 
 		$headers = "Reply-To:noReply";   
 		mail($to,$email_subject,$email_body,$headers);
@@ -47,10 +49,11 @@ while($aff1=mysqli_fetch_array($sql1))
 
 	if($aff2['requiredTime'] != 0  &&  date("Y-m-d") == $deadlineDate){
 		$to = $aff3['email']; 
-		$email_subject = "SmartCarMaintenance Notification";
-		$email_body = "Dear " . $aff['username'] . "You have received a new message from SmartCarMaintenance Mobile App
-		Maintenance: ". $maintenanceName . " to be done today !!
-		Thank";
+		$email_subject = "Dear " . $aff['username'] . ",\n
+		You have received a new message from SmartCarMaintenance Mobile App.\n
+		Maintenance: ". $maintenanceName . " for the vehicle " . $vehicleName . " needs to be done today !!\n
+		Regards\n
+		SmartCarMaintenance";
 		$headers = "From: noreply@SmartCarMaintenance.com"; 
 		$headers = "Reply-To:noReply";   
 		mail($to,$email_subject,$email_body,$headers);
@@ -59,10 +62,11 @@ while($aff1=mysqli_fetch_array($sql1))
 	}
 	if($aff2['requiredMileage'] != 0 && $nextMaintenance <= 0){
 		$to = $aff3['email']; 
-		$email_subject = "SmartCarMaintenance Notification";
-		$email_body = "Dear " . $aff['username'] . "You have received a new message from SmartCarMaintenance Mobile App
-		You have reached the limit mileage to do the maintenance: ". $maintenanceName . " !!
-		Thank";
+		$email_subject = "Dear " . $aff['username'] . ",\n
+		You have received a new message from SmartCarMaintenance Mobile App.\n
+		You have reached the limit mileage to do the maintenance: ". $maintenanceName . " for the vehicle " . $vehicleName . " !!\n
+		Regards\n
+		SmartCarMaintenance";
 		$headers = "From: noreply@SmartCarMaintenance.com"; 
 		$headers = "Reply-To:noReply";   
 		mail($to,$email_subject,$email_body,$headers);
@@ -90,9 +94,11 @@ while($aff4=mysqli_fetch_array($sql4))
 	if(date("Y-m-d") == $oneWeekBeforeReminder){
 		$to = $aff5['email']; 
 		$email_subject = "SmartCarMaintenance Notification";
-		$email_body = "Dear " . $aff['username'] . "You have received a new message from SmartCarMaintenance Mobile App
-		Your document ". $documentName . " will expire in one week ". date("Y-m-d") . " !!
-		Thank";
+		$email_body = "Dear " . $aff['username'] . ",\n
+		You have received a new message from SmartCarMaintenance Mobile App.\n
+		Your document ". $documentName . " for the vehicle " . $vehicleName . " will expire in one week !!\n
+		Regards\n
+		SmartCarMaintenance";
 		$headers = "From: noreply@SmartCarMaintenance.com"; 
 		$headers = "Reply-To:noReply";   
 		mail($to,$email_subject,$email_body,$headers);
@@ -103,9 +109,11 @@ while($aff4=mysqli_fetch_array($sql4))
 	if(date("Y-m-d") == $expiryDate){
 		$to = $aff5['email']; 
 		$email_subject = "SmartCarMaintenance Notification";
-		$email_body = "Dear " . $aff['username'] . "You have received a new message from SmartCarMaintenance Mobile App
-		Your document ". $documentName . " will expire today !!
-		Thank";
+		$email_body = "Dear " . $aff['username'] . ",\n
+		You have received a new message from SmartCarMaintenance Mobile App.\n
+		Your document ". $documentName . " for the vehicle " . $vehicleName . " expires today !!\n
+		Regards\n
+		SmartCarMaintenance";
 		$headers = "From: noreply@SmartCarMaintenance.com"; 
 		$headers = "Reply-To:noReply";   
 		mail($to,$email_subject,$email_body,$headers);
