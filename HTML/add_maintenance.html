@@ -46,13 +46,14 @@
 		var cost = document.getElementById("cost").value;
 		var date = document.getElementById("date").value;
 		var currentMileage = document.getElementById("currentMileage").value;
-		currentMileage = parseInt(currentMileage);	
+			
 		
 		if(selectedVehicle == '' || selectedMaintenance=='' || date =='' || currentMileage=='' || cost==''){
 		alert ('Input required');
+		window.location.href = 'add_maintenance.html';
 		return;
 		}
-		
+		currentMileage = parseInt(currentMileage);
 		var vars = "selectedVehicle="+selectedVehicle+"&selectedMaintenance="+selectedMaintenance+"&cost="+cost+"&date="+date+"&currentMileage="+currentMileage;
 		
 		hr.open("POST", url+"?username="+username, true);
