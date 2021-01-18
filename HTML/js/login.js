@@ -18,6 +18,7 @@ $(function(){
 		    var return_data = hr.responseText;
 		    if (return_data != 'Login failed') {
 			sessionStorage.setItem('username', username);
+			sessionStorage.setItem('password', password);
 			sessionStorage.setItem('email', return_data);
 			sessionStorage.setItem('status', 'Logged_in');
 			window.location = 'index.html';
@@ -33,7 +34,7 @@ $(function(){
 	    
 	}
 	else {
-	    location.reload();
+	    window.location.href = 'login.html';
 	}
     })
 })
