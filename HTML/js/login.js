@@ -24,8 +24,8 @@ $(function(){
 			window.location = 'index.html';
 		    }
 		    else {
-			alert('Invalid username and password! Try again.');
-			window.location('login.html');
+			alert('Invalid username or password! Try again.');
+			window.location = 'login.html';
 		    }
 		}
 	    }
